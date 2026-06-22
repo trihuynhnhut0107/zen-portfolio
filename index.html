@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en" x-data="app()" :class="{'dark':dark}" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Ditroit Clone — In-depth football analysis. Premium content experience. Welcome to the new era of football.">
+<meta name="keywords" content="football, football analysis, premium content, ditroit clone">
+<meta name="author" content="Ditroit">
+<title>Ditroit Clone — In-depth Football Analysis &amp; Premium Experience</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=Inter:wght@300..800&display=swap" rel="stylesheet">
+
+<script>
+tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      fontFamily: { display: ['Plus Jakarta Sans','sans-serif'], body: ['Inter','sans-serif'] },
+      colors: { accent: '#FF6B2B', 'accent-light': '#FF8F5C' }
+    }
+  }
+}
+</script>
+
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html,body{font-family:'Inter',sans-serif}
+h1,h2,h3,h4,h5,h6{font-family:'Plus Jakarta Sans',sans-serif}
+body{transition:background-color .3s,color .3s}
+
+/* noise overlay */
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.35;
+background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.05'/%3E%3C/svg%3E")}
+
+/* scrollbar */
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:#FF6B2B;border-radius:99px}
+
+/* reveal on scroll */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .6s cubic-bezier(.4,0,.2,1),transform .6s cubic-bezier(.4,0,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
+
+/* nav underline animation */
+.nl{position:relative}
+.nl::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:1.5px;background:currentColor;transition:width .22s cubic-bezier(.4,0,.2,1)}
+.nl:hover::after,.nl.on::after{width:100%}
+.nl.on{font-weight:500}
+
+/* shimmer button */
+.shimmer{position:relative;overflow:hidden}
+.shimmer::after{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:rgba(255,255,255,.18);transform:skewX(-20deg);transition:left .4s cubic-bezier(.4,0,.2,1)}
+.shimmer:hover::after{left:160%}
+
+/* photo frames */
+.pf{overflow:hidden;background:#d4d4d8}
+.pf img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* card hover */
+.card-h{transition:transform .28s cubic-bezier(.4,0,.2,1),border-color .18s}
+.card-h:hover{transform:translateY(-4px)}
+
+/* skill tag */
+.stag{transition:border-color .18s}
+
+[x-cloak]{display:none!important}
+</style>
+</head>
+
+<body class="bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 antialiased">
+
+<!-- ═══ NAV ═══ -->
+<header class="fixed inset-x-0 top-0 z-50 transition-all duration-300"
+  :class="sc?'bg-white/90 dark:bg-zinc-950/90 backdrop-blur-md shadow-sm shadow-black/5':''">
+  <nav class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between" aria-label="Main navigation">
+
+    <a href="/" class="font-display font-bold text-xl tracking-tight relative z-10 text-zinc-900 dark:text-white">
+      ditroit
+    </a>
+
+    <ul class="hidden md:flex items-center gap-8 text-sm" role="list">
+      <li><a href="/" class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors" :class="s==='hero'?'on !text-zinc-900 dark:!text-white':''">Home</a></li>
+      <li><a href="#about" class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors" :class="s==='about'?'on !text-zinc-900 dark:!text-white':''">About</a></li>
+      <li><a href="mailto:info@ditroit.it" class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors">Book</a></li>
+    </ul>
+
+    <div class="flex items-center gap-3">
+      <!-- dark toggle -->
+      <button @click="dark=!dark" class="w-9 h-9 flex items-center justify-center rounded-full border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors" :aria-label="dark?'Light mode':'Dark mode'">
+        <svg x-show="!dark" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        <svg x-show="dark"  class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"/></svg>
+      </button>
+      <!-- hamburger -->
+      <button @click="mm=!mm" class="md:hidden w-9 h-9 flex items-center justify-center rounded-full border border-zinc-200 dark:border-zinc-800" :aria-expanded="mm" aria-label="Toggle menu">
+        <svg x-show="!mm" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <svg x-show="mm"  class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- mobile menu -->
+  <div x-show="mm" x-cloak
+    x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 -translate-y-2" x-transition:enter-end="opacity-100 translate-y-0"
+    x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-2"
+    class="md:hidden bg-white dark:bg-zinc-950 border-t border-zinc-100 dark:border-zinc-900">
+    <ul class="flex flex-col px-6 py-5 gap-4 text-sm font-medium" role="list">
+      <li><a href="/" @click="mm=false" class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">Home</a></li>
+      <li><a href="#about" @click="mm=false" class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">About</a></li>
+      <li><a href="mailto:info@ditroit.it" @click="mm=false" class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">Book</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+
+<!-- ═══ HERO ═══ -->
+<section id="hero" class="relative min-h-[70vh] flex items-center pt-16 overflow-hidden">
+  <div class="absolute top-1/4 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
+  <div class="absolute bottom-1/4 left-0 w-64 h-64 bg-zinc-200/50 dark:bg-zinc-800/30 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
+
+  <div class="relative z-10 max-w-5xl mx-auto px-6 py-24 w-full text-center">
+    <h1 class="reveal font-display font-bold text-4xl md:text-5xl lg:text-6xl leading-[1.15] tracking-tight text-zinc-900 dark:text-white max-w-4xl mx-auto">
+      In-depth football analysis. <br class="hidden sm:inline">
+      <span class="text-accent">Premium content experience.</span> <br>
+      Welcome to the new era of football.
+    </h1>
+  </div>
+</section>
+
+<!-- ═══ WORK ═══ -->
+<section id="work" class="py-24 relative overflow-hidden">
+  <div class="max-w-6xl mx-auto px-6 relative">
+    
+    <!-- Section Title (Timeline indicator) -->
+    <div class="text-center mb-20">
+      <p class="reveal text-xs font-semibold text-accent tracking-widest uppercase mb-3">Timeline</p>
+      <h2 class="reveal d1 font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-white">Football Analysis Journey</h2>
+    </div>
+
+    <!-- The Central Vertical Line -->
+    <div class="absolute left-8 md:left-1/2 top-32 bottom-0 w-[2px] bg-gradient-to-b from-accent via-zinc-200 to-zinc-200 dark:via-zinc-800 dark:to-zinc-900 -translate-x-1/2" aria-hidden="true"></div>
+
+    <div class="space-y-16 relative">
+
+      <!-- Item 1 (Left on Desktop, Right on Mobile) -->
+      <div class="relative flex flex-col md:flex-row items-center justify-between group">
+        <!-- Node Dot -->
+        <div class="absolute left-8 md:left-1/2 w-4 h-4 rounded-full bg-white dark:bg-zinc-900 border-4 border-zinc-300 dark:border-zinc-700 group-hover:border-accent -translate-x-1/2 z-10 transition-all duration-300"></div>
+        
+        <!-- Left content -->
+        <div class="w-full md:w-[calc(50%-3rem)] pl-16 md:pl-0 md:text-right reveal d1">
+          <a href="/projects/nem-ngon-03-2026" class="block">
+            <article class="card-h p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-900/60 border border-zinc-100 dark:border-zinc-800/80 hover:border-accent transition-all duration-300">
+              <div class="pf w-full aspect-[16/10] rounded-xl overflow-hidden mb-4 bg-zinc-200 dark:bg-zinc-800">
+                <img src="https://res.cloudinary.com/dwpp9gtvk/image/upload/v1776329145/banhmivn_f1n72b.jpg" alt="Nem Ngon" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
+              </div>
+              <span class="text-xs font-bold text-accent tracking-wider block mb-1">03/2026</span>
+              <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-2 group-hover:text-accent transition-colors">Nem Ngon</h3>
+              <p class="text-sm text-zinc-500 dark:text-zinc-400 line-clamp-2">A comprehensive analysis of culinary influences on athlete nutrition and local community football engagement.</p>
+            </article>
+          </a>
+        </div>
+        
+        <!-- Right Spacer -->
+        <div class="hidden md:block w-[calc(50%-3rem)]"></div>
+      </div>
+
+      <!-- Item 2 (Right on Desktop, Right on Mobile) -->
+      <div class="relative flex flex-col md:flex-row items-center justify-between group">
+        <!-- Node Dot -->
+        <div class="absolute left-8 md:left-1/2 w-4 h-4 rounded-full bg-white dark:bg-zinc-900 border-4 border-zinc-300 dark:border-zinc-700 group-hover:border-accent -translate-x-1/2 z-10 transition-all duration-300"></div>
+        
+        <!-- Left Spacer -->
+        <div class="hidden md:block w-[calc(50%-3rem)]"></div>
+        
+        <!-- Right content -->
+        <div class="w-full md:w-[calc(50%-3rem)] pl-16 md:pl-0 reveal d2">
+          <a href="/projects/cup-hoc-xem-bong-01-2026" class="block">
+            <article class="card-h p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-900/60 border border-zinc-100 dark:border-zinc-800/80 hover:border-accent transition-all duration-300">
+              <div class="pf w-full aspect-[16/10] rounded-xl overflow-hidden mb-4 bg-zinc-200 dark:bg-zinc-800">
+                <img src="https://res.cloudinary.com/dwpp9gtvk/image/upload/v1776236418/B%E1%BA%A3n_sao_c%E1%BB%A7a_Arsenal_va_Bayern_nhu_nay_thi_sao_Chelsea_an_uoc_ay_rag0jy.png" alt="Cúp Học Xem Bóng" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
+              </div>
+              <span class="text-xs font-bold text-accent tracking-wider block mb-1">01/2026</span>
+              <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-2 group-hover:text-accent transition-colors">Cúp Học Xem Bóng</h3>
+              <p class="text-sm text-zinc-500 dark:text-zinc-400 line-clamp-2">An analysis focusing on tactical trends and game management strategies across major leagues.</p>
+            </article>
+          </a>
+        </div>
+      </div>
+
+      <!-- Item 3 (Left on Desktop, Right on Mobile) -->
+      <div class="relative flex flex-col md:flex-row items-center justify-between group">
+        <!-- Node Dot -->
+        <div class="absolute left-8 md:left-1/2 w-4 h-4 rounded-full bg-white dark:bg-zinc-900 border-4 border-zinc-300 dark:border-zinc-700 group-hover:border-accent -translate-x-1/2 z-10 transition-all duration-300"></div>
+        
+        <!-- Left content -->
+        <div class="w-full md:w-[calc(50%-3rem)] pl-16 md:pl-0 md:text-right reveal d3">
+          <a href="/projects/qua-bong-cuoi-01-2026" class="block">
+            <article class="card-h p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-900/60 border border-zinc-100 dark:border-zinc-800/80 hover:border-accent transition-all duration-300">
+              <div class="pf w-full aspect-[16/10] rounded-xl overflow-hidden mb-4 bg-zinc-200 dark:bg-zinc-800">
+                <img src="https://res.cloudinary.com/dwpp9gtvk/image/upload/v1776332482/tiendaoduc_mgc0yn.jpg" alt="Quả Bóng Cười" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
+              </div>
+              <span class="text-xs font-bold text-accent tracking-wider block mb-1">01/2026</span>
+              <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-2 group-hover:text-accent transition-colors">Quả Bóng Cười</h3>
+              <p class="text-sm text-zinc-500 dark:text-zinc-400 line-clamp-2">Humorous tactical observations and statistical anomalies in national and international tournaments.</p>
+            </article>
+          </a>
+        </div>
+        
+        <!-- Right Spacer -->
+        <div class="hidden md:block w-[calc(50%-3rem)]"></div>
+      </div>
+
+      <!-- Item 4 (Right on Desktop, Right on Mobile) -->
+      <div class="relative flex flex-col md:flex-row items-center justify-between group">
+        <!-- Node Dot -->
+        <div class="absolute left-8 md:left-1/2 w-4 h-4 rounded-full bg-white dark:bg-zinc-900 border-4 border-zinc-300 dark:border-zinc-700 group-hover:border-accent -translate-x-1/2 z-10 transition-all duration-300"></div>
+        
+        <!-- Left Spacer -->
+        <div class="hidden md:block w-[calc(50%-3rem)]"></div>
+        
+        <!-- Right content -->
+        <div class="w-full md:w-[calc(50%-3rem)] pl-16 md:pl-0 reveal d1">
+          <a href="/projects/bong-voi-cha-banh-08-2025" class="block">
+            <article class="card-h p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-900/60 border border-zinc-100 dark:border-zinc-800/80 hover:border-accent transition-all duration-300">
+              <div class="pf w-full aspect-[16/10] rounded-xl overflow-hidden mb-4 bg-zinc-200 dark:bg-zinc-800">
+                <img src="https://res.cloudinary.com/dwpp9gtvk/image/upload/v1776354889/bongbanh1280_pnz5hv.jpg" alt="Bóng với Chả Bánh" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
+              </div>
+              <span class="text-xs font-bold text-accent tracking-wider block mb-1">08/2025 - 03/2026</span>
+              <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-2 group-hover:text-accent transition-colors">Bóng với Chả Bánh</h3>
+              <p class="text-sm text-zinc-500 dark:text-zinc-400 line-clamp-2">Long-term tracking of youth academies, grassroots development, and transition styles.</p>
+            </article>
+          </a>
+        </div>
+      </div>
+
+      <!-- Item 5 (Left on Desktop, Right on Mobile) -->
+      <div class="relative flex flex-col md:flex-row items-center justify-between group">
+        <!-- Node Dot -->
+        <div class="absolute left-8 md:left-1/2 w-4 h-4 rounded-full bg-white dark:bg-zinc-900 border-4 border-zinc-300 dark:border-zinc-700 group-hover:border-accent -translate-x-1/2 z-10 transition-all duration-300"></div>
+        
+        <!-- Left content -->
+        <div class="w-full md:w-[calc(50%-3rem)] pl-16 md:pl-0 md:text-right reveal d2">
+          <a href="/projects/troll-fc-online-07-2025" class="block">
+            <article class="card-h p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-900/60 border border-zinc-100 dark:border-zinc-800/80 hover:border-accent transition-all duration-300">
+              <div class="pf w-full aspect-[16/10] rounded-xl overflow-hidden mb-4 bg-zinc-200 dark:bg-zinc-800">
+                <img src="https://res.cloudinary.com/dwpp9gtvk/image/upload/v1776336754/thumb_flxhrr.jpg" alt="Troll FC Online" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
+              </div>
+              <span class="text-xs font-bold text-accent tracking-wider block mb-1">07 - 09/2025</span>
+              <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-2 group-hover:text-accent transition-colors">Troll FC Online</h3>
+              <p class="text-sm text-zinc-500 dark:text-zinc-400 line-clamp-2">Analyzing virtual football coaching methods and comparing digital simulations to real-world formations.</p>
+            </article>
+          </a>
+        </div>
+        
+        <!-- Right Spacer -->
+        <div class="hidden md:block w-[calc(50%-3rem)]"></div>
+      </div>
+
+      <!-- Item 6 (Right on Desktop, Right on Mobile) -->
+      <div class="relative flex flex-col md:flex-row items-center justify-between group">
+        <!-- Node Dot -->
+        <div class="absolute left-8 md:left-1/2 w-4 h-4 rounded-full bg-white dark:bg-zinc-900 border-4 border-zinc-300 dark:border-zinc-700 group-hover:border-accent -translate-x-1/2 z-10 transition-all duration-300"></div>
+        
+        <!-- Left Spacer -->
+        <div class="hidden md:block w-[calc(50%-3rem)]"></div>
+        
+        <!-- Right content -->
+        <div class="w-full md:w-[calc(50%-3rem)] pl-16 md:pl-0 reveal d3">
+          <a href="/projects/hlv-online-classic-12-2024" class="block">
+            <article class="card-h p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-900/60 border border-zinc-100 dark:border-zinc-800/80 hover:border-accent transition-all duration-300">
+              <div class="pf w-full aspect-[16/10] rounded-xl overflow-hidden mb-4 bg-zinc-200 dark:bg-zinc-800">
+                <img src="https://res.cloudinary.com/dewz8qqiq/image/upload/q_auto/f_auto/v1775142875/ronaldoclassic_nlbuix.jpg" alt="HLV Online Classic" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
+              </div>
+              <span class="text-xs font-bold text-accent tracking-wider block mb-1">12/2024</span>
+              <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-2 group-hover:text-accent transition-colors">HLV Online Classic</h3>
+              <p class="text-sm text-zinc-500 dark:text-zinc-400 line-clamp-2">A nostalgic review of historical tactics and iconic team structures that defined the classic football era.</p>
+            </article>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ABOUT ═══ -->
+<section id="about" class="py-24 bg-zinc-50 dark:bg-zinc-900/40">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid md:grid-cols-2 gap-16 items-center">
+
+      <div class="reveal order-2 md:order-1">
+        <div class="pf w-full aspect-square max-w-sm mx-auto rounded-3xl">
+          <img src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?w=700&q=80" alt="Football tactics clipboard" loading="lazy">
+        </div>
+      </div>
+
+      <div class="order-1 md:order-2">
+        <p class="reveal text-xs font-medium text-accent tracking-widest uppercase mb-3">About Ditroit</p>
+        <h2 class="reveal d1 font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-white leading-tight mb-6">A new era of<br>football analysis</h2>
+        <p class="reveal d2 text-zinc-500 dark:text-zinc-400 leading-relaxed mb-4">
+          Ditroit is a boutique football analytics and media studio. We create in-depth tactical analysis, premium editorial content, and immersive visual storytelling for the modern era of the beautiful game.
+        </p>
+        <p class="reveal d3 text-zinc-500 dark:text-zinc-400 leading-relaxed mb-8">
+          We believe football is more than just a game — it's a rich cultural phenomenon that deserves deep, high-fidelity coverage. Our work merges statistics, history, and stunning graphic design to deliver a premium reader experience.
+        </p>
+        <div class="reveal d4">
+          <p class="text-xs font-medium text-zinc-500 dark:text-zinc-400 uppercase tracking-widest mb-3">Focus &amp; Expertise</p>
+          <div class="flex flex-wrap gap-2" role="list" aria-label="Skills">
+            <span role="listitem" class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent">Tactical Analysis</span>
+            <span role="listitem" class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent">Editorial Design</span>
+            <span role="listitem" class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent">Data Visualization</span>
+            <span role="listitem" class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent">Football Culture</span>
+            <span role="listitem" class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent">Video Production</span>
+            <span role="listitem" class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent">Branding &amp; Identity</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="border-t border-zinc-100 dark:border-zinc-900 bg-zinc-50 dark:bg-zinc-950 py-16">
+  <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+    
+    <!-- Work with us -->
+    <div>
+      <h3 class="font-display font-bold text-lg text-zinc-900 dark:text-white mb-4">Work with us</h3>
+      <p class="text-sm text-zinc-600 dark:text-zinc-400 hover:text-accent transition-colors">
+        <a href="mailto:designer@ditroit.it">designer@ditroit.it</a>
+      </p>
+    </div>
+
+    <!-- Contact us -->
+    <div>
+      <h3 class="font-display font-bold text-lg text-zinc-900 dark:text-white mb-4">Contact us</h3>
+      <p class="text-sm text-zinc-600 dark:text-zinc-400 hover:text-accent transition-colors">
+        <a href="mailto:info@ditroit.it">info@ditroit.it</a>
+      </p>
+    </div>
+
+    <!-- Ditroit Srl -->
+    <div>
+      <h3 class="font-display font-bold text-lg text-zinc-900 dark:text-white mb-4">Ditroit Srl</h3>
+      <div class="text-sm text-zinc-500 dark:text-zinc-400 space-y-1">
+        <p>Viale Abruzzi, 32</p>
+        <p>20131 - Milano</p>
+        <p>+39 02 3831 5150</p>
+        <p class="text-xs text-zinc-400 dark:text-zinc-500 mt-2">P.IVA 09123170962</p>
+      </div>
+    </div>
+
+    <!-- Follow us -->
+    <div>
+      <h3 class="font-display font-bold text-lg text-zinc-900 dark:text-white mb-4">Follow us</h3>
+      <div class="flex flex-col space-y-2 text-sm text-zinc-600 dark:text-zinc-400">
+        <a href="#" class="hover:text-accent transition-colors">Vimeo</a>
+        <a href="#" class="hover:text-accent transition-colors">Behance</a>
+        <a href="#" class="hover:text-accent transition-colors">Instagram</a>
+      </div>
+    </div>
+
+  </div>
+  
+  <!-- Year and Copyright -->
+  <div class="max-w-6xl mx-auto px-6 mt-12 pt-8 border-t border-zinc-100 dark:border-zinc-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-400">
+    <p>© <span id="yr"></span> Ditroit. All rights reserved.</p>
+    <p>Built with Tailwind CSS &amp; Alpine.js</p>
+  </div>
+</footer>
+
+<script>
+function app() {
+  return {
+    dark: false,
+    mm: false,
+    sc: false,
+    s: 'hero',
+
+    init() {
+      // dark mode
+      this.dark = localStorage.getItem('theme') === 'dark' ||
+        (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      this.$watch('dark', v => localStorage.setItem('theme', v ? 'dark' : 'light'));
+
+      // scroll
+      window.addEventListener('scroll', () => {
+        this.sc = window.scrollY > 20;
+        this.updateSection();
+      }, { passive: true });
+
+      // reveal
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+      document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+      // year
+      document.getElementById('yr').textContent = new Date().getFullYear();
+    },
+
+    updateSection() {
+      const atBottom = (window.innerHeight + window.scrollY) >= document.body.scrollHeight - 60;
+      if (atBottom) { this.s = 'about'; return; }
+      const ids = ['about','work','hero'];
+      for (const id of ids) {
+        const el = document.getElementById(id);
+        if (el && window.scrollY >= el.offsetTop - 130) { this.s = id; return; }
+      }
+    }
+  }
+}
+</script>
+
+</body>
+</html>

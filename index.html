@@ -1,424 +1,1246 @@
-<!DOCTYPE html>
-<html lang="en" x-data="app()" :class="{'dark':dark}" class="scroll-smooth">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Ditroit Clone — In-depth football analysis. Premium content experience. Welcome to the new era of football.">
-<meta name="keywords" content="football, football analysis, premium content, ditroit clone">
-<meta name="author" content="Ditroit">
-<title>Ditroit Clone — In-depth Football Analysis &amp; Premium Experience</title>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MYM - Meet Your Maker</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/variables.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+      <div class="hero-bg">
+        <!-- Simulated background from design -->
+        <div class="shape-triangle-1"></div>
+      </div>
+      <div class="container hero-content">
+        <div class="hero-logo-large">
+          <!-- Abstract Logo representation -->
+          <svg
+            width="200"
+            height="150"
+            viewBox="0 0 200 150"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <!-- Top left rect -->
+            <rect y="70" width="40" height="40" fill="#253BFF" />
+            <!-- Diagonal 1 -->
+            <path d="M0 50 L70 120 L100 90 L30 20 Z" fill="#141843" />
+            <!-- Diagonal 2 -->
+            <path d="M100 90 L170 20 L200 50 L130 120 Z" fill="#141843" />
+            <!-- Right rect -->
+            <rect x="160" y="50" width="40" height="70" fill="#141843" />
+          </svg>
+        </div>
+        <div class="hero-text">
+          <h1>MYM</h1>
+          <h2>Meet Your Maker</h2>
+        </div>
+        <div class="hero-subtext">
+          <p>Where Vision Meets<br />its Architect</p>
+        </div>
+      </div>
+    </section>
 
-<script src="https://cdn.tailwindcss.com"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=Inter:wght@300..800&display=swap" rel="stylesheet">
+    <!-- Table of Content Section -->
+    <section class="toc-section" id="toc">
+      <div class="container">
+        <header class="section-header">
+          <div class="logo-small">MYM</div>
+          <div class="header-title">MYM - Meet Your Maker</div>
+        </header>
 
-<script>
-tailwind.config = {
-  darkMode: 'class',
-  theme: {
-    extend: {
-      fontFamily: { display: ['Plus Jakarta Sans','sans-serif'], body: ['Inter','sans-serif'] },
-      colors: { accent: '#FF6B2B', 'accent-light': '#FF8F5C' }
-    }
-  }
-}
-</script>
+        <h2 class="section-title">Table of Content</h2>
 
-<style>
-*,*::before,*::after{box-sizing:border-box}
-html,body{font-family:'Inter',sans-serif}
-h1,h2,h3,h4,h5,h6{font-family:'Plus Jakarta Sans',sans-serif}
-body{transition:background-color .3s,color .3s}
-
-/* noise overlay */
-body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.35;
-background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.05'/%3E%3C/svg%3E")}
-
-/* scrollbar */
-::-webkit-scrollbar{width:5px}
-::-webkit-scrollbar-track{background:transparent}
-::-webkit-scrollbar-thumb{background:#FF6B2B;border-radius:99px}
-
-/* reveal on scroll */
-.reveal{opacity:0;transform:translateY(26px);transition:opacity .6s cubic-bezier(.4,0,.2,1),transform .6s cubic-bezier(.4,0,.2,1)}
-.reveal.in{opacity:1;transform:none}
-.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
-
-/* nav underline animation */
-.nl{position:relative}
-.nl::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:1.5px;background:currentColor;transition:width .22s cubic-bezier(.4,0,.2,1)}
-.nl:hover::after,.nl.on::after{width:100%}
-.nl.on{font-weight:500}
-
-/* shimmer button */
-.shimmer{position:relative;overflow:hidden}
-.shimmer::after{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:rgba(255,255,255,.18);transform:skewX(-20deg);transition:left .4s cubic-bezier(.4,0,.2,1)}
-.shimmer:hover::after{left:160%}
-
-/* photo frames */
-.pf{overflow:hidden;background:#d4d4d8}
-.pf img{width:100%;height:100%;object-fit:cover;display:block}
-
-/* card hover */
-.card-h{transition:transform .28s cubic-bezier(.4,0,.2,1),border-color .18s}
-.card-h:hover{transform:translateY(-4px)}
-
-/* skill tag */
-.stag{transition:border-color .18s}
-
-[x-cloak]{display:none!important}
-</style>
-</head>
-
-<body class="bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 antialiased">
-
-<!-- ═══ NAV ═══ -->
-<header class="fixed inset-x-0 top-0 z-50 transition-all duration-300"
-  :class="sc?'bg-white/90 dark:bg-zinc-950/90 backdrop-blur-md shadow-sm shadow-black/5':''">
-  <nav class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between" aria-label="Main navigation">
-
-    <a href="/" class="font-display font-bold text-xl tracking-tight relative z-10 text-zinc-900 dark:text-white">
-      ditroit
-    </a>
-
-    <ul class="hidden md:flex items-center gap-8 text-sm" role="list">
-      <li><a href="/" class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors" :class="s==='hero'?'on !text-zinc-900 dark:!text-white':''">Home</a></li>
-      <li><a href="#about" class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors" :class="s==='about'?'on !text-zinc-900 dark:!text-white':''">About</a></li>
-      <li><a href="mailto:info@ditroit.it" class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors">Book</a></li>
-    </ul>
-
-    <div class="flex items-center gap-3">
-      <!-- dark toggle -->
-      <button @click="dark=!dark" class="w-9 h-9 flex items-center justify-center rounded-full border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors" :aria-label="dark?'Light mode':'Dark mode'">
-        <svg x-show="!dark" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
-        <svg x-show="dark"  class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"/></svg>
-      </button>
-      <!-- hamburger -->
-      <button @click="mm=!mm" class="md:hidden w-9 h-9 flex items-center justify-center rounded-full border border-zinc-200 dark:border-zinc-800" :aria-expanded="mm" aria-label="Toggle menu">
-        <svg x-show="!mm" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-        <svg x-show="mm"  class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-      </button>
-    </div>
-  </nav>
-
-  <!-- mobile menu -->
-  <div x-show="mm" x-cloak
-    x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 -translate-y-2" x-transition:enter-end="opacity-100 translate-y-0"
-    x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-2"
-    class="md:hidden bg-white dark:bg-zinc-950 border-t border-zinc-100 dark:border-zinc-900">
-    <ul class="flex flex-col px-6 py-5 gap-4 text-sm font-medium" role="list">
-      <li><a href="/" @click="mm=false" class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">Home</a></li>
-      <li><a href="#about" @click="mm=false" class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">About</a></li>
-      <li><a href="mailto:info@ditroit.it" @click="mm=false" class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">Book</a></li>
-    </ul>
-  </div>
-</header>
-
-<main>
-
-<!-- ═══ HERO ═══ -->
-<section id="hero" class="relative min-h-[70vh] flex items-center pt-16 overflow-hidden">
-  <div class="absolute top-1/4 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
-  <div class="absolute bottom-1/4 left-0 w-64 h-64 bg-zinc-200/50 dark:bg-zinc-800/30 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
-
-  <div class="relative z-10 max-w-5xl mx-auto px-6 py-24 w-full text-center">
-    <h1 class="reveal font-display font-bold text-4xl md:text-5xl lg:text-6xl leading-[1.15] tracking-tight text-zinc-900 dark:text-white max-w-4xl mx-auto">
-      In-depth football analysis. <br class="hidden sm:inline">
-      <span class="text-accent">Premium content experience.</span> <br>
-      Welcome to the new era of football.
-    </h1>
-  </div>
-</section>
-
-<!-- ═══ WORK ═══ -->
-<section id="work" class="py-24 relative overflow-hidden">
-  <div class="max-w-6xl mx-auto px-6 relative">
-    
-    <!-- Section Title (Timeline indicator) -->
-    <div class="text-center mb-20">
-      <p class="reveal text-xs font-semibold text-accent tracking-widest uppercase mb-3">Timeline</p>
-      <h2 class="reveal d1 font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-white">Football Analysis Journey</h2>
-    </div>
-
-    <!-- The Central Vertical Line -->
-    <div class="absolute left-8 md:left-1/2 top-32 bottom-0 w-[2px] bg-gradient-to-b from-accent via-zinc-200 to-zinc-200 dark:via-zinc-800 dark:to-zinc-900 -translate-x-1/2" aria-hidden="true"></div>
-
-    <div class="space-y-16 relative">
-
-      <!-- Item 1 (Left on Desktop, Right on Mobile) -->
-      <div class="relative flex flex-col md:flex-row items-center justify-between group">
-        <!-- Node Dot -->
-        <div class="absolute left-8 md:left-1/2 w-4 h-4 rounded-full bg-white dark:bg-zinc-900 border-4 border-zinc-300 dark:border-zinc-700 group-hover:border-accent -translate-x-1/2 z-10 transition-all duration-300"></div>
-        
-        <!-- Left content -->
-        <div class="w-full md:w-[calc(50%-3rem)] pl-16 md:pl-0 md:text-right reveal d1">
-          <a href="/projects/nem-ngon-03-2026" class="block">
-            <article class="card-h p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-900/60 border border-zinc-100 dark:border-zinc-800/80 hover:border-accent transition-all duration-300">
-              <div class="pf w-full aspect-[16/10] rounded-xl overflow-hidden mb-4 bg-zinc-200 dark:bg-zinc-800">
-                <img src="https://res.cloudinary.com/dwpp9gtvk/image/upload/v1776329145/banhmivn_f1n72b.jpg" alt="Nem Ngon" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
+        <div class="toc-card">
+          <div class="toc-list">
+            <!-- Item 1 -->
+            <div class="toc-item">
+              <div class="toc-number">1.</div>
+              <div class="toc-content">
+                <div class="toc-title">
+                  <span>Who is "MYM"?</span>
+                  <span class="toc-page">02</span>
+                </div>
+                <div class="toc-sublist-wrapper">
+                  <div>
+                    <div class="toc-category">Graphic Designing</div>
+                    <ul class="toc-sublist">
+                      <li><span>A.</span> Content Creator</li>
+                      <li><span>B.</span> Graphic Designer</li>
+                      <li><span>C.</span> Cinematic video editor</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <div class="toc-category">Developing</div>
+                    <ul class="toc-sublist">
+                      <li><span>A.</span> Software Designer & Developer</li>
+                      <li><span>B.</span> UX/UI Designer & Developer</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <div class="toc-category" style="margin-top: 1rem">
+                      Live Streaming
+                    </div>
+                    <ul class="toc-sublist">
+                      <li><span>A.</span> Livestream production</li>
+                    </ul>
+                  </div>
+                </div>
               </div>
-              <span class="text-xs font-bold text-accent tracking-wider block mb-1">03/2026</span>
-              <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-2 group-hover:text-accent transition-colors">Nem Ngon</h3>
-              <p class="text-sm text-zinc-500 dark:text-zinc-400 line-clamp-2">A comprehensive analysis of culinary influences on athlete nutrition and local community football engagement.</p>
-            </article>
-          </a>
-        </div>
-        
-        <!-- Right Spacer -->
-        <div class="hidden md:block w-[calc(50%-3rem)]"></div>
-      </div>
+            </div>
 
-      <!-- Item 2 (Right on Desktop, Right on Mobile) -->
-      <div class="relative flex flex-col md:flex-row items-center justify-between group">
-        <!-- Node Dot -->
-        <div class="absolute left-8 md:left-1/2 w-4 h-4 rounded-full bg-white dark:bg-zinc-900 border-4 border-zinc-300 dark:border-zinc-700 group-hover:border-accent -translate-x-1/2 z-10 transition-all duration-300"></div>
-        
-        <!-- Left Spacer -->
-        <div class="hidden md:block w-[calc(50%-3rem)]"></div>
-        
-        <!-- Right content -->
-        <div class="w-full md:w-[calc(50%-3rem)] pl-16 md:pl-0 reveal d2">
-          <a href="/projects/cup-hoc-xem-bong-01-2026" class="block">
-            <article class="card-h p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-900/60 border border-zinc-100 dark:border-zinc-800/80 hover:border-accent transition-all duration-300">
-              <div class="pf w-full aspect-[16/10] rounded-xl overflow-hidden mb-4 bg-zinc-200 dark:bg-zinc-800">
-                <img src="https://res.cloudinary.com/dwpp9gtvk/image/upload/v1776236418/B%E1%BA%A3n_sao_c%E1%BB%A7a_Arsenal_va_Bayern_nhu_nay_thi_sao_Chelsea_an_uoc_ay_rag0jy.png" alt="Cúp Học Xem Bóng" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
+            <!-- Item 2 -->
+            <div class="toc-item">
+              <div class="toc-number">2.</div>
+              <div class="toc-content">
+                <div class="toc-title">
+                  <span>Overview 6-years of MYM</span>
+                  <span class="toc-page">03</span>
+                </div>
               </div>
-              <span class="text-xs font-bold text-accent tracking-wider block mb-1">01/2026</span>
-              <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-2 group-hover:text-accent transition-colors">Cúp Học Xem Bóng</h3>
-              <p class="text-sm text-zinc-500 dark:text-zinc-400 line-clamp-2">An analysis focusing on tactical trends and game management strategies across major leagues.</p>
-            </article>
-          </a>
-        </div>
-      </div>
+            </div>
 
-      <!-- Item 3 (Left on Desktop, Right on Mobile) -->
-      <div class="relative flex flex-col md:flex-row items-center justify-between group">
-        <!-- Node Dot -->
-        <div class="absolute left-8 md:left-1/2 w-4 h-4 rounded-full bg-white dark:bg-zinc-900 border-4 border-zinc-300 dark:border-zinc-700 group-hover:border-accent -translate-x-1/2 z-10 transition-all duration-300"></div>
-        
-        <!-- Left content -->
-        <div class="w-full md:w-[calc(50%-3rem)] pl-16 md:pl-0 md:text-right reveal d3">
-          <a href="/projects/qua-bong-cuoi-01-2026" class="block">
-            <article class="card-h p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-900/60 border border-zinc-100 dark:border-zinc-800/80 hover:border-accent transition-all duration-300">
-              <div class="pf w-full aspect-[16/10] rounded-xl overflow-hidden mb-4 bg-zinc-200 dark:bg-zinc-800">
-                <img src="https://res.cloudinary.com/dwpp9gtvk/image/upload/v1776332482/tiendaoduc_mgc0yn.jpg" alt="Quả Bóng Cười" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
+            <!-- Item 3 -->
+            <div class="toc-item">
+              <div class="toc-number text-primary">3.</div>
+              <div class="toc-content">
+                <div class="toc-title text-primary" style="margin-bottom: 0">
+                  <span>Projects</span>
+                </div>
+
+                <!-- Projects Group 1 -->
+                <div style="margin-top: 1rem">
+                  <div class="toc-title" style="margin-bottom: 0.5rem">
+                    <span>Zen Tactics</span>
+                    <span class="toc-page">04 - 07</span>
+                  </div>
+                  <div class="toc-projects-grid">
+                    <div class="project-item">
+                      <span class="project-name">Zen Tactics</span>
+                      <span class="project-type">(Livestream channel)</span>
+                    </div>
+                    <div class="project-item">
+                      <span class="project-name">Modern Football</span>
+                      <span class="project-type">(Sport YT channel)</span>
+                    </div>
+                    <div class="project-item">
+                      <span class="project-name">Zen Cine & Esports</span>
+                      <span class="project-type">(Other YT channel)</span>
+                    </div>
+                    <div class="project-item">
+                      <span class="project-name">The Tactics Duo</span>
+                      <span class="project-type">(Outsource projects)</span>
+                    </div>
+                    <div class="project-item">
+                      <span class="project-name">Zen FIFA<br />eWorld Cup</span>
+                      <span class="project-type">(Public Event)</span>
+                    </div>
+                    <div class="project-item">
+                      <span class="project-name">Zentlemen</span>
+                      <span class="project-type">(Website)</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Projects Group 2 -->
+                <div style="margin-top: 2rem">
+                  <div class="toc-title" style="margin-bottom: 0.5rem">
+                    <span>HLV Online</span>
+                    <span class="toc-page">08 - 11</span>
+                  </div>
+                  <div class="toc-projects-grid">
+                    <div class="project-item">
+                      <span class="project-name">HLV Online</span>
+                      <span class="project-type">(Sport YT channel)</span>
+                    </div>
+                    <div class="project-item">
+                      <span class="project-name">HLV Online<br />Classic</span>
+                      <span class="project-type">(Sport YT channel)</span>
+                    </div>
+                    <div class="project-item">
+                      <span class="project-name">HLV Onlive</span>
+                      <span class="project-type">(Livestream channel)</span>
+                    </div>
+                    <div class="project-item">
+                      <span class="project-name">Cup Hoc<br />Xem Bong</span>
+                      <span class="project-type">(Sport YT channel)</span>
+                    </div>
+                    <div class="project-item">
+                      <span class="project-name"
+                        >Qua Bong Cuoi,<br />Nem Ngon...</span
+                      >
+                      <span class="project-type">(Outsource projects)</span>
+                    </div>
+                    <div class="project-item">
+                      <span class="project-name">The Watcher</span>
+                      <span class="project-type">(Website)</span>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <span class="text-xs font-bold text-accent tracking-wider block mb-1">01/2026</span>
-              <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-2 group-hover:text-accent transition-colors">Quả Bóng Cười</h3>
-              <p class="text-sm text-zinc-500 dark:text-zinc-400 line-clamp-2">Humorous tactical observations and statistical anomalies in national and international tournaments.</p>
-            </article>
-          </a>
-        </div>
-        
-        <!-- Right Spacer -->
-        <div class="hidden md:block w-[calc(50%-3rem)]"></div>
-      </div>
-
-      <!-- Item 4 (Right on Desktop, Right on Mobile) -->
-      <div class="relative flex flex-col md:flex-row items-center justify-between group">
-        <!-- Node Dot -->
-        <div class="absolute left-8 md:left-1/2 w-4 h-4 rounded-full bg-white dark:bg-zinc-900 border-4 border-zinc-300 dark:border-zinc-700 group-hover:border-accent -translate-x-1/2 z-10 transition-all duration-300"></div>
-        
-        <!-- Left Spacer -->
-        <div class="hidden md:block w-[calc(50%-3rem)]"></div>
-        
-        <!-- Right content -->
-        <div class="w-full md:w-[calc(50%-3rem)] pl-16 md:pl-0 reveal d1">
-          <a href="/projects/bong-voi-cha-banh-08-2025" class="block">
-            <article class="card-h p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-900/60 border border-zinc-100 dark:border-zinc-800/80 hover:border-accent transition-all duration-300">
-              <div class="pf w-full aspect-[16/10] rounded-xl overflow-hidden mb-4 bg-zinc-200 dark:bg-zinc-800">
-                <img src="https://res.cloudinary.com/dwpp9gtvk/image/upload/v1776354889/bongbanh1280_pnz5hv.jpg" alt="Bóng với Chả Bánh" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
-              </div>
-              <span class="text-xs font-bold text-accent tracking-wider block mb-1">08/2025 - 03/2026</span>
-              <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-2 group-hover:text-accent transition-colors">Bóng với Chả Bánh</h3>
-              <p class="text-sm text-zinc-500 dark:text-zinc-400 line-clamp-2">Long-term tracking of youth academies, grassroots development, and transition styles.</p>
-            </article>
-          </a>
-        </div>
-      </div>
-
-      <!-- Item 5 (Left on Desktop, Right on Mobile) -->
-      <div class="relative flex flex-col md:flex-row items-center justify-between group">
-        <!-- Node Dot -->
-        <div class="absolute left-8 md:left-1/2 w-4 h-4 rounded-full bg-white dark:bg-zinc-900 border-4 border-zinc-300 dark:border-zinc-700 group-hover:border-accent -translate-x-1/2 z-10 transition-all duration-300"></div>
-        
-        <!-- Left content -->
-        <div class="w-full md:w-[calc(50%-3rem)] pl-16 md:pl-0 md:text-right reveal d2">
-          <a href="/projects/troll-fc-online-07-2025" class="block">
-            <article class="card-h p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-900/60 border border-zinc-100 dark:border-zinc-800/80 hover:border-accent transition-all duration-300">
-              <div class="pf w-full aspect-[16/10] rounded-xl overflow-hidden mb-4 bg-zinc-200 dark:bg-zinc-800">
-                <img src="https://res.cloudinary.com/dwpp9gtvk/image/upload/v1776336754/thumb_flxhrr.jpg" alt="Troll FC Online" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
-              </div>
-              <span class="text-xs font-bold text-accent tracking-wider block mb-1">07 - 09/2025</span>
-              <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-2 group-hover:text-accent transition-colors">Troll FC Online</h3>
-              <p class="text-sm text-zinc-500 dark:text-zinc-400 line-clamp-2">Analyzing virtual football coaching methods and comparing digital simulations to real-world formations.</p>
-            </article>
-          </a>
-        </div>
-        
-        <!-- Right Spacer -->
-        <div class="hidden md:block w-[calc(50%-3rem)]"></div>
-      </div>
-
-      <!-- Item 6 (Right on Desktop, Right on Mobile) -->
-      <div class="relative flex flex-col md:flex-row items-center justify-between group">
-        <!-- Node Dot -->
-        <div class="absolute left-8 md:left-1/2 w-4 h-4 rounded-full bg-white dark:bg-zinc-900 border-4 border-zinc-300 dark:border-zinc-700 group-hover:border-accent -translate-x-1/2 z-10 transition-all duration-300"></div>
-        
-        <!-- Left Spacer -->
-        <div class="hidden md:block w-[calc(50%-3rem)]"></div>
-        
-        <!-- Right content -->
-        <div class="w-full md:w-[calc(50%-3rem)] pl-16 md:pl-0 reveal d3">
-          <a href="/projects/hlv-online-classic-12-2024" class="block">
-            <article class="card-h p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-900/60 border border-zinc-100 dark:border-zinc-800/80 hover:border-accent transition-all duration-300">
-              <div class="pf w-full aspect-[16/10] rounded-xl overflow-hidden mb-4 bg-zinc-200 dark:bg-zinc-800">
-                <img src="https://res.cloudinary.com/dewz8qqiq/image/upload/q_auto/f_auto/v1775142875/ronaldoclassic_nlbuix.jpg" alt="HLV Online Classic" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
-              </div>
-              <span class="text-xs font-bold text-accent tracking-wider block mb-1">12/2024</span>
-              <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-2 group-hover:text-accent transition-colors">HLV Online Classic</h3>
-              <p class="text-sm text-zinc-500 dark:text-zinc-400 line-clamp-2">A nostalgic review of historical tactics and iconic team structures that defined the classic football era.</p>
-            </article>
-          </a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ═══ ABOUT ═══ -->
-<section id="about" class="py-24 bg-zinc-50 dark:bg-zinc-900/40">
-  <div class="max-w-6xl mx-auto px-6">
-    <div class="grid md:grid-cols-2 gap-16 items-center">
-
-      <div class="reveal order-2 md:order-1">
-        <div class="pf w-full aspect-square max-w-sm mx-auto rounded-3xl">
-          <img src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?w=700&q=80" alt="Football tactics clipboard" loading="lazy">
-        </div>
-      </div>
-
-      <div class="order-1 md:order-2">
-        <p class="reveal text-xs font-medium text-accent tracking-widest uppercase mb-3">About Ditroit</p>
-        <h2 class="reveal d1 font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-white leading-tight mb-6">A new era of<br>football analysis</h2>
-        <p class="reveal d2 text-zinc-500 dark:text-zinc-400 leading-relaxed mb-4">
-          Ditroit is a boutique football analytics and media studio. We create in-depth tactical analysis, premium editorial content, and immersive visual storytelling for the modern era of the beautiful game.
-        </p>
-        <p class="reveal d3 text-zinc-500 dark:text-zinc-400 leading-relaxed mb-8">
-          We believe football is more than just a game — it's a rich cultural phenomenon that deserves deep, high-fidelity coverage. Our work merges statistics, history, and stunning graphic design to deliver a premium reader experience.
-        </p>
-        <div class="reveal d4">
-          <p class="text-xs font-medium text-zinc-500 dark:text-zinc-400 uppercase tracking-widest mb-3">Focus &amp; Expertise</p>
-          <div class="flex flex-wrap gap-2" role="list" aria-label="Skills">
-            <span role="listitem" class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent">Tactical Analysis</span>
-            <span role="listitem" class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent">Editorial Design</span>
-            <span role="listitem" class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent">Data Visualization</span>
-            <span role="listitem" class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent">Football Culture</span>
-            <span role="listitem" class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent">Video Production</span>
-            <span role="listitem" class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent">Branding &amp; Identity</span>
+            </div>
           </div>
         </div>
       </div>
+    </section>
 
-    </div>
-  </div>
-</section>
+    <!-- Who is MYM Section -->
+    <section class="who-is-section" id="about">
+      <div class="container">
+        <header class="section-header">
+          <div class="logo-small">MYM</div>
+          <div class="header-title">MYM - Meet Your Maker</div>
+        </header>
 
-</main>
+        <div class="about-top">
+          <h2 class="section-title">Who is "MYM"?</h2>
+          <div class="about-intro">
+            <h3>Where Vision Meets<br />its Architect</h3>
+            <div class="about-desc">
+              <p>
+                Every great achievement begins as a fragment of imagination. But
+                the distance between a brilliant idea and its reality is often a
+                treacherous gap. We exist to bridge that gap.
+              </p>
+              <p>
+                As a multidisciplinary creative agency, we refine the raw core
+                of your demand into a pinnacle of design and strategy—optimizing
+                performance for those who demand excellence.
+              </p>
+            </div>
+          </div>
+        </div>
 
-<footer class="border-t border-zinc-100 dark:border-zinc-900 bg-zinc-50 dark:bg-zinc-950 py-16">
-  <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-    
-    <!-- Work with us -->
-    <div>
-      <h3 class="font-display font-bold text-lg text-zinc-900 dark:text-white mb-4">Work with us</h3>
-      <p class="text-sm text-zinc-600 dark:text-zinc-400 hover:text-accent transition-colors">
-        <a href="mailto:designer@ditroit.it">designer@ditroit.it</a>
-      </p>
-    </div>
-
-    <!-- Contact us -->
-    <div>
-      <h3 class="font-display font-bold text-lg text-zinc-900 dark:text-white mb-4">Contact us</h3>
-      <p class="text-sm text-zinc-600 dark:text-zinc-400 hover:text-accent transition-colors">
-        <a href="mailto:info@ditroit.it">info@ditroit.it</a>
-      </p>
-    </div>
-
-    <!-- Ditroit Srl -->
-    <div>
-      <h3 class="font-display font-bold text-lg text-zinc-900 dark:text-white mb-4">Ditroit Srl</h3>
-      <div class="text-sm text-zinc-500 dark:text-zinc-400 space-y-1">
-        <p>Viale Abruzzi, 32</p>
-        <p>20131 - Milano</p>
-        <p>+39 02 3831 5150</p>
-        <p class="text-xs text-zinc-400 dark:text-zinc-500 mt-2">P.IVA 09123170962</p>
+        <div class="services-grid">
+          <!-- Service Card 1 -->
+          <div class="service-card">
+            <div class="service-icon">📝</div>
+            <h4 class="service-title">Content Creator</h4>
+            <p class="service-desc">
+              We craft compelling narratives and high-impact copy tailored to
+              your brand's voice. From strategic storytelling to social media
+              engagement, we ensure your message resonates deeply and clearly
+              communicates your interaction with your target audience.
+            </p>
+          </div>
+          <!-- Service Card 2 -->
+          <div class="service-card">
+            <div class="service-icon">🎨</div>
+            <h4 class="service-title">Graphic Designer</h4>
+            <p class="service-desc">
+              We translate your brand identity into stunning visual experiences.
+              By blending aesthetic precision with strategic intent, we create
+              logos, marketing assets, and brand systems that capture attention
+              and clearly communicate your unique value proposition.
+            </p>
+          </div>
+          <!-- Service Card 3 -->
+          <div class="service-card">
+            <div class="service-icon">🎬</div>
+            <h4 class="service-title">Cinematic Video Editor</h4>
+            <p class="service-desc">
+              We transform raw footage into immersive stories that captivate
+              viewers. Utilizing professional-grade editing, pacing, and sound
+              design, we bring your vision to life through high-quality video
+              content optimized for any platform or medium.
+            </p>
+          </div>
+          <!-- Service Card 4 -->
+          <div class="service-card">
+            <div class="service-icon">💻</div>
+            <h4 class="service-title">Software Designer & Developer</h4>
+            <p class="service-desc">
+              We build robust, scalable, and intuitive software solutions. From
+              architectural design to full-stack implementation, we bridge the
+              gap between complex requirements and high-performance technical
+              execution to deliver products that empower your users.
+            </p>
+          </div>
+          <!-- Service Card 5 -->
+          <div class="service-card">
+            <div class="service-icon">📱</div>
+            <h4 class="service-title">UX/ UI Designer & Developer</h4>
+            <p class="service-desc">
+              We prioritize the human experience by designing interfaces that
+              are as functional as they are beautiful. Our approach focuses on
+              user research, intuitive navigation, and responsive development to
+              ensure seamless interaction across all digital touchpoints.
+            </p>
+          </div>
+          <!-- Service Card 6 -->
+          <div class="service-card">
+            <div class="service-icon">📡</div>
+            <h4 class="service-title">Livestream Production</h4>
+            <p class="service-desc">
+              We manage the technical and creative demands of live broadcasting.
+              Whether it is webinars, events, or real-time interactive content,
+              we ensure a professional-grade stream with stable connectivity,
+              high-quality audio/visuals, and seamless show flow.
+            </p>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
 
-    <!-- Follow us -->
-    <div>
-      <h3 class="font-display font-bold text-lg text-zinc-900 dark:text-white mb-4">Follow us</h3>
-      <div class="flex flex-col space-y-2 text-sm text-zinc-600 dark:text-zinc-400">
-        <a href="#" class="hover:text-accent transition-colors">Vimeo</a>
-        <a href="#" class="hover:text-accent transition-colors">Behance</a>
-        <a href="#" class="hover:text-accent transition-colors">Instagram</a>
+    <!-- Overview 6-years Section -->
+    <section class="overview-section" id="overview">
+      <div class="container">
+        <header class="section-header">
+          <div class="logo-small">MYM</div>
+          <div class="header-title">MYM - Meet Your Maker</div>
+        </header>
+
+        <h2 class="section-title">Overview<br />6-years of MYM</h2>
+
+        <div class="stats-banner">
+          <div class="stats-group">
+            <h4 class="stats-era-title">Zen Tactics' Era</h4>
+            <div class="stats-row">
+              <div class="stat-item">
+                <div class="stat-circle bg-white text-dark">64K</div>
+                <span class="stat-label">Subscribers</span>
+              </div>
+              <div class="stat-item">
+                <div class="stat-circle bg-white text-dark">44K</div>
+                <span class="stat-label">Followers</span>
+              </div>
+              <div
+                class="stat-circle bg-white text-primary fw-bold"
+                style="font-size: 1.25rem"
+              >
+                6.3M
+              </div>
+              <span
+                class="stat-label"
+                style="position: absolute; bottom: -20px; font-size: 0.75rem"
+                >Views</span
+              >
+              <!-- Adjusting the layout manually via css later -->
+            </div>
+          </div>
+          <div class="stats-divider"></div>
+          <div class="stats-group">
+            <h4 class="stats-era-title text-primary">HLV Online's Era</h4>
+            <div class="stats-row">
+              <div class="stat-item">
+                <div class="stat-circle bg-primary text-white">164K</div>
+                <span class="stat-label">Subscribers</span>
+              </div>
+              <div class="stat-item">
+                <div class="stat-circle bg-primary text-white">133K</div>
+                <span class="stat-label">Follower</span>
+              </div>
+              <div class="stat-item">
+                <div class="stat-circle bg-primary text-white">39M</div>
+                <span class="stat-label">Views</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-container">
+          <!-- Timeline styling will handle the central line and dots -->
+
+          <div class="timeline-row">
+            <div class="timeline-content left">
+              <h4>Zen Tactics</h4>
+              <p class="text-muted">(Livestream channel)</p>
+            </div>
+            <div class="timeline-center">
+              <span class="timeline-year">2021</span>
+              <div class="timeline-dot"></div>
+            </div>
+            <div class="timeline-content right">
+              <h5 class="era-marker">Zen Tactics' Era</h5>
+            </div>
+          </div>
+
+          <div class="timeline-row">
+            <div class="timeline-content left">
+              <h4>Zen Cine & Esports</h4>
+              <p class="text-muted">(Other YT channels)</p>
+            </div>
+            <div class="timeline-center">
+              <span class="timeline-year">2022</span>
+              <div class="timeline-dot"></div>
+            </div>
+            <div class="timeline-content right">
+              <h4>Modern Football</h4>
+              <p class="text-muted">(Sport YT Channel)</p>
+              <h4 style="margin-top: 1rem">The Tactics Duo</h4>
+              <p class="text-muted">(Outsource Channel)</p>
+              <h4 style="margin-top: 1rem">Zentlemen</h4>
+              <p class="text-muted">(Website)</p>
+            </div>
+          </div>
+
+          <div class="timeline-row">
+            <div class="timeline-content left">
+              <h4>Zen FIFA<br />eWorld Cup</h4>
+              <p class="text-muted">(Public Event)</p>
+            </div>
+            <div class="timeline-center">
+              <span class="timeline-year">2023</span>
+              <div class="timeline-dot"></div>
+            </div>
+            <div class="timeline-content right">
+              <h5 class="era-marker text-primary">HLV Online's Era</h5>
+            </div>
+          </div>
+
+          <div class="timeline-row">
+            <div class="timeline-content left">
+              <h4>HLV Online</h4>
+              <p class="text-muted">(Sport YT Channel)</p>
+              <h4 style="margin-top: 1rem">HLV Onlive</h4>
+              <p class="text-muted">(Livestream Channel)</p>
+            </div>
+            <div class="timeline-center">
+              <span class="timeline-year">2024</span>
+              <div class="timeline-dot"></div>
+            </div>
+            <div class="timeline-content right">
+              <h4>HLV Online Classic</h4>
+              <p class="text-muted">(Sport YT Channel)</p>
+            </div>
+          </div>
+
+          <div class="timeline-row">
+            <div class="timeline-content left">
+              <h4>Qua Bong Cuoi,<br />Nem Ngon,...</h4>
+              <p class="text-muted">(Outsource Channels)</p>
+            </div>
+            <div class="timeline-center">
+              <span class="timeline-year">2025</span>
+              <div class="timeline-dot"></div>
+            </div>
+            <div class="timeline-content right">
+              <h4>Cup Hoc Xem Bong</h4>
+              <p class="text-muted">(Sport YT Channel)</p>
+              <h4 style="margin-top: 1rem">The Watcher</h4>
+              <p class="text-muted">(Website)</p>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
 
-  </div>
-  
-  <!-- Year and Copyright -->
-  <div class="max-w-6xl mx-auto px-6 mt-12 pt-8 border-t border-zinc-100 dark:border-zinc-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-400">
-    <p>© <span id="yr"></span> Ditroit. All rights reserved.</p>
-    <p>Built with Tailwind CSS &amp; Alpine.js</p>
-  </div>
-</footer>
+    <!-- Project: Zen Tactics Section -->
+    <section class="project-detail-section" id="zen-tactics">
+      <div class="container">
+        <header class="section-header">
+          <div class="logo-small">MYM</div>
+          <div class="header-title">MYM - Meet Your Maker</div>
+        </header>
 
-<script>
-function app() {
-  return {
-    dark: false,
-    mm: false,
-    sc: false,
-    s: 'hero',
+        <h4 class="text-primary project-tag">project</h4>
+        <h2 class="section-title" style="margin-bottom: 2rem">Zen Tactics</h2>
 
-    init() {
-      // dark mode
-      this.dark = localStorage.getItem('theme') === 'dark' ||
-        (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
-      this.$watch('dark', v => localStorage.setItem('theme', v ? 'dark' : 'light'));
+        <div class="project-intro-grid">
+          <div>
+            <h5 class="mb-sm">Project description</h5>
+            <p class="text-muted text-sm">
+              The Zen system represents a multi-year journey of redefining
+              digital sports and entertainment media in Vietnam. Born from a
+              desire to move beyond basic streams, we have consistently pushed
+              the boundaries of content creation—transitioning from pioneering
+              regional tactical analysis to football broadcasting, large scale
+              live esports events. Our evolution reflects a commitment to
+              technical precision, visual innovation, and an unwavering focus on
+              deep-audience engagement across diverse digital platforms.
+            </p>
+          </div>
+          <div>
+            <h5 class="mb-sm">Vision</h5>
+            <p class="text-muted text-sm">
+              Our work—from pioneering high-end tactical boards in football to
+              crossing down esports strategy—is designed to dismantle the
+              barrier between 'hardcore information' and 'audience
+              understanding'. By utilizing dynamic motion graphics and reliable
+              storytelling, we turn technical analysis into a rewarding viewing
+              experience.
+            </p>
+          </div>
+        </div>
 
-      // scroll
-      window.addEventListener('scroll', () => {
-        this.sc = window.scrollY > 20;
-        this.updateSection();
-      }, { passive: true });
+        <div class="project-big-stats">
+          <div class="big-stat-item">
+            <div class="stat-circle-lg bg-white text-dark">64K</div>
+            <span class="stat-label">Subscribers</span>
+          </div>
+          <div class="big-stat-item">
+            <div class="stat-circle-lg bg-white text-primary">6.3M</div>
+            <span class="stat-label">Views</span>
+          </div>
+          <div class="big-stat-item">
+            <div class="stat-circle-lg bg-white text-dark">44K</div>
+            <span class="stat-label">Followers</span>
+          </div>
+        </div>
 
-      // reveal
-      const io = new IntersectionObserver(entries => {
-        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-      document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+        <div class="project-sub-timeline">
+          <div class="sub-tl-track"></div>
+          <div class="sub-tl-item">
+            <span class="sub-tl-year">2021</span>
+            <span class="sub-tl-marker">Zen Tactics' Era</span>
+          </div>
+          <div class="sub-tl-content">
+            <div class="sub-tl-col">
+              <h5>Zen Tactics</h5>
+              <p class="text-muted text-sm">(Livestream channel)</p>
+              <div class="sub-tl-stats">
+                <span class="badge">30K</span>
+                <span class="badge">1M</span>
+                <span class="badge">600</span>
+              </div>
+            </div>
+            <div class="sub-tl-col">
+              <h5>Zen Cine &<br />Esports</h5>
+              <p class="text-muted text-sm">(Other channels)</p>
+              <div class="sub-tl-stats">
+                <span class="badge">12.3K</span>
+                <span class="badge">22K</span>
+                <span class="badge">19.4K</span>
+              </div>
+            </div>
+            <div class="sub-tl-col">
+              <h5>Zen FIFA<br />eWorld Cup</h5>
+              <p class="text-muted text-sm">(Public Event)</p>
+            </div>
+          </div>
+          <div class="sub-tl-item" style="margin-top: 3rem">
+            <span class="sub-tl-year">2022</span>
+          </div>
+          <div class="sub-tl-content">
+            <div class="sub-tl-col">
+              <h5>Modern Football</h5>
+              <p class="text-muted text-sm">(Sport YT channel)</p>
+              <div class="sub-tl-stats">
+                <span class="badge">24K</span>
+                <span class="badge">4M</span>
+                <span class="badge">30K</span>
+              </div>
+            </div>
+            <div class="sub-tl-col">
+              <h5>The Tactics Duo</h5>
+              <p class="text-muted text-sm">(Outsource channel)</p>
+              <div class="sub-tl-stats">
+                <span class="badge">12.5K</span>
+                <span class="badge">1846K</span>
+                <span class="badge">14.7K</span>
+              </div>
+            </div>
+            <div class="sub-tl-col">
+              <h5>Zentlemen</h5>
+              <p class="text-muted text-sm">(Website)</p>
+            </div>
+          </div>
+        </div>
 
-      // year
-      document.getElementById('yr').textContent = new Date().getFullYear();
-    },
+        <!-- Cards Section -->
+        <div class="project-showcase-cards">
+          <!-- Card 1 -->
+          <div class="showcase-card">
+            <div class="showcase-header">
+              <span class="showcase-year">2021</span>
+              <h4 class="showcase-title">
+                Zen Tactics <span>(Livestream)</span>
+              </h4>
+              <p class="showcase-desc">
+                One of the pioneering football YouTube channels in Vietnam to
+                use well-designed motion graphics rather than relying on clunky
+                audios/internet stock footage. We delivered a visual experience
+                on par with mainstream broadcast networks, elevating
+                high-quality football content in the landscape. This project
+                successfully set the industry standard for both visual
+                aesthetics and analytical depth for future football content
+                creators in Vietnam.
+              </p>
+            </div>
+            <div class="showcase-stats-bar">
+              <div class="sc-stat">
+                <span class="icon">▶</span> 30K+
+                <span class="label">Subscribers</span>
+              </div>
+              <div class="sc-stat text-primary">
+                1M+ <span class="label text-muted">Views</span>
+              </div>
+              <div class="sc-stat text-primary">
+                600 <span class="label text-muted">Views/stream</span>
+              </div>
+              <div class="sc-stat">
+                <span class="icon">f</span> 30K+
+                <span class="label">Followers</span>
+              </div>
+            </div>
+            <div class="img-row-4">
+              <img class="img-placeholder" src="images/zen-tactics/472789356_898720405677394_7598917261126547216_n.jpg" alt="Zen Tactics Image 1" style="object-fit: cover;">
+              <img class="img-placeholder" src="images/zen-tactics/472599692_895716355977799_4787358625607068956_n.jpg" alt="Zen Tactics Image 2" style="object-fit: cover;">
+              <img class="img-placeholder" src="images/zen-tactics/472426126_895709369311831_6879265775689816510_n.jpg" alt="Zen Tactics Image 3" style="object-fit: cover;">
+              <img class="img-placeholder" src="images/zen-tactics/472179218_895044539378314_2909086318927515435_n.jpg" alt="Zen Tactics Image 4" style="object-fit: cover;">
+            </div>
+          </div>
 
-    updateSection() {
-      const atBottom = (window.innerHeight + window.scrollY) >= document.body.scrollHeight - 60;
-      if (atBottom) { this.s = 'about'; return; }
-      const ids = ['about','work','hero'];
-      for (const id of ids) {
-        const el = document.getElementById(id);
-        if (el && window.scrollY >= el.offsetTop - 130) { this.s = id; return; }
-      }
-    }
-  }
-}
-</script>
+          <!-- Card 2 -->
+          <div class="showcase-card">
+            <div class="showcase-header">
+              <span class="showcase-year">2022</span>
+              <h4 class="showcase-title">
+                Modern Football <span>(Sport YT channel)</span>
+              </h4>
+              <p class="showcase-desc">
+                Modern Football (2022): The successor to Zentactics. This
+                project assumes the core analytical DNA of its predecessor while
+                introducing a brand new visual identity. With a more vibrant and
+                dynamic design language, Modern Football effectively bridges the
+                gap between today's complex tactical analysis and young
+                audiences through relatable graphics and engaging interactions.
+              </p>
+            </div>
+            <div class="showcase-stats-bar">
+              <div class="sc-stat">
+                <span class="icon">▶</span> 24K+
+                <span class="label">Subscribers</span>
+              </div>
+              <div class="sc-stat text-primary">
+                4M+ <span class="label text-muted">Views</span>
+              </div>
+              <div class="sc-stat">
+                <span class="icon">f</span> 30K+
+                <span class="label">Followers</span>
+              </div>
+            </div>
+            <div class="img-row-4">
+              <img class="img-placeholder" src="logos/zen-tactics/1.jpg" alt="Modern Football Image 1" style="object-fit: cover;">
+              <img class="img-placeholder" src="images/modern-football/1.jpg" alt="Modern Football Image 2" style="object-fit: cover;">
+              <img class="img-placeholder" src="images/modern-football/2.jpg" alt="Modern Football Image 3" style="object-fit: cover;">
+              <img class="img-placeholder" src="images/modern-football/3.jpg" alt="Modern Football Image 4" style="object-fit: cover;">
+            </div>
+          </div>
 
-</body>
+          <!-- Card 3: Zen Cine & Esports -->
+          <div class="showcase-card">
+            <div class="showcase-header">
+              <span class="showcase-year">2022</span>
+              <div class="showcase-title-row">
+                <div>
+                  <h4 class="showcase-title" style="margin-bottom: 0">
+                    Zen Cine & Esports
+                  </h4>
+                  <span class="text-muted text-sm">(Other YT channels)</span>
+                </div>
+                <div>
+                  <p class="showcase-desc mb-sm">
+                    A channel under the Zen system focusing on film content and perspectives from historical development, academic theory, to content analyzing stories and characters.
+                  </p>
+                  <p class="showcase-desc">
+                    A channel under the Zen system, Zen Esports is an information channel about esports tactics, covering in Esports. On YouTube, it produces in-depth analysis videos about matches, players, and overall strategies.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="showcase-stats-bar">
+              <div class="sc-stat">
+                <span class="icon">▶</span> 2.3K
+                <span class="label">Subscribers</span>
+              </div>
+              <div class="sc-stat text-primary">
+                22K+ <span class="label text-muted">Views</span>
+              </div>
+              <div class="sc-stat">
+                <span class="icon">f</span> 9.4K
+                <span class="label">Followers</span>
+              </div>
+            </div>
+            <div class="showcase-image-grid-large">
+              <p class="text-sm fw-bold mb-sm">Images</p>
+              <div class="img-row-4">
+                <img class="img-placeholder" src="images/zen-cine/295828058_104244065711818_4950345619294456168_n.jpg" alt="Zen Cine Image 1" style="object-fit: cover;">
+                <img class="img-placeholder" src="images/zen-cine/297812997_113979661404925_4704299858387917655_n.jpg" alt="Zen Cine Image 2" style="object-fit: cover;">
+                <img class="img-placeholder" src="images/zen-esport/2.png" alt="Zen Esports Image 1" style="object-fit: cover;">
+                <img class="img-placeholder" src="images/zen-esport/5.png" alt="Zen Esports Image 2" style="object-fit: cover;">
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4: The Tactics Duo -->
+          <div class="showcase-card">
+            <div class="showcase-header">
+              <span class="showcase-year">2022</span>
+              <div class="showcase-title-row">
+                <div>
+                  <h4 class="showcase-title" style="margin-bottom: 0">
+                    The Tactics Duo
+                  </h4>
+                  <span class="text-muted text-sm">(Outsource channel)</span>
+                </div>
+                <p class="showcase-desc">
+                  A page focused on expert analysis of each match before kickoff and heavy on graphic design skills, in just one year we have reached traffic of up to 600k views despite having only over 3 thousand subscribers, equivalent to more than 200 times.
+                </p>
+              </div>
+            </div>
+            <div class="showcase-stats-bar">
+              <div class="sc-stat">
+                <span class="icon">▶</span> 2.9K
+                <span class="label">Subscribers</span>
+              </div>
+              <div class="sc-stat text-primary">
+                646K <span class="label text-muted">Views</span>
+              </div>
+              <div class="sc-stat">
+                <span class="icon">f</span> 4.7K
+                <span class="label">Followers</span>
+              </div>
+              <div class="sc-stat text-primary">
+                18K <span class="label text-muted">Views/ post</span>
+              </div>
+            </div>
+            <div class="showcase-image-grid-large">
+              <p class="text-sm fw-bold mb-sm">Images</p>
+              <div class="img-row-5" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--space-md);">
+                <img class="img-placeholder" src="images/tactics-duo/309459643_3421573241395550_5199766547589067483_n.jpg" alt="Tactics Duo Image 1" style="object-fit: cover;">
+                <img class="img-placeholder" src="images/tactics-duo/472270521_576889831872912_1974374757049650913_n.jpg" alt="Tactics Duo Image 2" style="object-fit: cover;">
+                <img class="img-placeholder" src="images/tactics-duo/473992265_586856844209544_1402096003712105981_n.jpg" alt="Tactics Duo Image 3" style="object-fit: cover;">
+                <img class="img-placeholder" src="images/tactics-duo/476110603_597252313169997_211867323366721269_n.jpg" alt="Tactics Duo Image 4" style="object-fit: cover;">
+                <img class="img-placeholder" src="images/tactics-duo/474148830_588211170740778_6105490074470537544_n.jpg" alt="Tactics Duo Image 5" style="object-fit: cover;">
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 5: Zen FIFA23 eWorld Cup -->
+          <div class="showcase-card">
+            <div class="showcase-header">
+              <span class="showcase-year">2022</span>
+              <div class="showcase-title-row">
+                <div>
+                  <h4 class="showcase-title" style="margin-bottom: 0">
+                    Zen FIFA23 eWorld Cup
+                  </h4>
+                  <span class="text-muted text-sm">(Public Event)</span>
+                </div>
+                <p class="showcase-desc">
+                  FIFA23 - Zen FIFA eWorld Cup (2023) The first Esports
+                  tournament that we organized under the Modern Football brand.
+                  This event stood out as one of the largest offline FIFA (now
+                  EA FC) tournaments ever hosted in Ho Chi Minh City, marking
+                  our successful expansion into a new field.
+                </p>
+              </div>
+            </div>
+            <div class="showcase-image-grid-large">
+              <p class="text-sm fw-bold mb-sm">Event photographs</p>
+              <div class="img-row-5" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--space-md);">
+                <img class="img-placeholder" src="images/zen-fifa-eworldcup/475831082_944879471080415_4984727195396708880_n.jpg" alt="Event Photo 1" style="object-fit: cover;">
+                <img class="img-placeholder" src="images/zen-fifa-eworldcup/475872175_944879587747070_2330471353124767265_n.jpg" alt="Event Photo 2" style="object-fit: cover;">
+                <img class="img-placeholder" src="images/zen-fifa-eworldcup/475684476_944879924413703_8127607533985552413_n.jpg" alt="Event Photo 3" style="object-fit: cover;">
+                <img class="img-placeholder" src="images/zen-fifa-eworldcup/475677583_944879651080397_2228180341651416688_n.jpg" alt="Event Photo 4" style="object-fit: cover;">
+                <img class="img-placeholder" src="images/zen-fifa-eworldcup/475558328_944879894413706_2573176993309625017_n.jpg" alt="Event Photo 5" style="object-fit: cover;">
+              </div>
+              <p class="text-sm fw-bold mb-sm mt-md" style="margin-top: 2rem;">Social media Images</p>
+              <div class="img-row-6" style="display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--space-md);">
+                <img class="img-placeholder" src="images/zen-fifa-eworldcup/475442045_944876027747426_7192855859758644955_n.jpg" alt="Social Media 1" style="object-fit: cover;">
+                <img class="img-placeholder" src="images/zen-fifa-eworldcup/475638227_944877357747293_4537695898040034537_n.jpg" alt="Social Media 2" style="object-fit: cover;">
+                <img class="img-placeholder" src="images/zen-fifa-eworldcup/475917156_944875434414152_4672534877754149075_n.jpg" alt="Social Media 3" style="object-fit: cover;">
+                <img class="img-placeholder" src="images/zen-fifa-eworldcup/475517253_944878681080494_2516129185662769711_n.jpg" alt="Social Media 4" style="object-fit: cover;">
+                <img class="img-placeholder" src="images/zen-fifa-eworldcup/475563734_944878747747154_6318760968757018323_n.jpg" alt="Social Media 5" style="object-fit: cover;">
+                <img class="img-placeholder" src="images/zen-fifa-eworldcup/475934640_944876517747377_6869799041919072697_n.jpg" alt="Social Media 6" style="object-fit: cover;">
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 6: Zentlemen -->
+          <div class="showcase-card">
+            <div class="showcase-header">
+              <span class="showcase-year">2022</span>
+              <div class="showcase-title-row">
+                <div>
+                  <h4 class="showcase-title" style="margin-bottom: 0">
+                    Zentlemen
+                  </h4>
+                  <span class="text-muted text-sm">(Website)</span>
+                </div>
+                <p class="showcase-desc">
+                  Developed a content-driven website for branding purposes.
+                  Focused on long-term brand building and content ecosystem
+                </p>
+              </div>
+            </div>
+            <div class="showcase-image-grid-large">
+              <div class="img-row-uxui">
+                <img class="img-placeholder bg-dark" src="images/zentlemen/image.png" alt="Zentlemen UX/UI 1" style="aspect-ratio: auto; object-position: top;">
+                <div style="position: relative;">
+                  <img class="img-placeholder bg-dark" src="images/zentlemen/image copy.png" alt="Zentlemen UX/UI 2" style="aspect-ratio: auto; object-position: top; border: 1px solid rgba(255, 255, 255, 0.2);">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project: HLV Online Section -->
+    <section class="project-detail-section" id="hlv-online">
+      <div class="container">
+        <header class="section-header">
+          <div class="logo-small">MYM</div>
+          <div class="header-title">MYM - Meet Your Maker</div>
+        </header>
+
+        <h4 class="text-primary project-tag">project</h4>
+        <h2 class="section-title" style="margin-bottom: 2rem">HLV Online</h2>
+
+        <div class="project-intro-grid">
+          <div>
+            <h5 class="mb-sm">Project description</h5>
+            <p class="text-muted text-sm">
+              As same as the first project, in HLV Online, we are a creative
+              collective committed to the vision of making technical content
+              effortlessly consumable. Across our diverse projects—ranging from
+              deep-dive football analytics to culinary and lifestyle media—we
+              utilize dynamic motion graphics, relatable storytelling, and
+              intuitive UI design to dismantle the barriers between complex
+              information and audience understanding.
+            </p>
+          </div>
+          <div>
+            <h5 class="mb-sm">Vision</h5>
+            <p class="text-muted text-sm">
+              To redefine the digital media landscape by proving that depth and
+              accessibility are not mutually exclusive. We are committed to
+              fostering a new standard of content where sophisticated insights
+              are simplified, making knowledge not only easier to understand but
+              truly enjoyable for the next generation of audiences.
+            </p>
+          </div>
+        </div>
+
+        <div class="project-big-stats-dashed">
+          <div class="big-stat-item">
+            <div class="stat-circle-lg bg-primary text-white shadow-primary">
+              164K
+            </div>
+            <span class="stat-label">Subscribers</span>
+          </div>
+          <div class="stat-dash-line"></div>
+          <div class="big-stat-item">
+            <div class="stat-circle-lg bg-primary text-white shadow-primary">
+              39M
+            </div>
+            <span class="stat-label">Views</span>
+          </div>
+          <div class="stat-dash-line"></div>
+          <div class="big-stat-item">
+            <div class="stat-circle-lg bg-primary text-white shadow-primary">
+              133K
+            </div>
+            <span class="stat-label">Followers</span>
+          </div>
+        </div>
+
+        <!-- New timeline for HLV Online -->
+        <div class="hlv-timeline-section mt-xl">
+          <!-- Top row items -->
+          <div class="hlv-tl-row top-row">
+            <div class="hlv-tl-item" style="flex: 1">
+              <h5>HLV Online</h5>
+              <p class="text-muted text-sm">(Sport YT channel)</p>
+              <div class="sub-tl-stats mt-sm">
+                <span class="badge border-white">94K</span>
+                <span class="badge border-white">9M</span>
+              </div>
+            </div>
+            <div class="hlv-tl-item" style="flex: 1">
+              <h5>HLV Onlive</h5>
+              <p class="text-muted text-sm">(Other channels)</p>
+              <div class="sub-tl-stats mt-sm">
+                <span class="badge border-white">8.3K</span>
+                <span class="badge border-white">370K</span>
+                <span class="badge border-white">600</span>
+              </div>
+            </div>
+            <div class="hlv-tl-item" style="flex: 1">
+              <h5>Qua Bong Cuoi,<br />Nem Ngon,...</h5>
+              <p class="text-muted text-sm">(Outsource Channels)</p>
+              <div class="sub-tl-stats mt-sm">
+                <span class="badge border-white">22K</span>
+                <span class="badge border-white">25M</span>
+                <span class="badge border-white">54K</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Center line -->
+          <div class="hlv-tl-line-wrapper">
+            <span class="hlv-tl-era text-primary fw-bold text-sm"
+              >HLV Online's Era</span
+            >
+            <div class="hlv-tl-line">
+              <div class="hlv-tl-marker"><span class="year">2023</span></div>
+              <div class="hlv-tl-marker"><span class="year">2024</span></div>
+              <div class="hlv-tl-marker"><span class="year">2025</span></div>
+            </div>
+            <span class="hlv-tl-end text-primary text-sm fw-bold"
+              >To be continued</span
+            >
+          </div>
+
+          <!-- Bottom row items -->
+          <div class="hlv-tl-row bottom-row" style="padding-left: 15%">
+            <div class="hlv-tl-item" style="flex: 1">
+              <h5>HLV Online Classic</h5>
+              <p class="text-muted text-sm">(Sport YT channel)</p>
+              <div class="sub-tl-stats mt-sm">
+                <span class="badge border-white">31K</span>
+                <span class="badge border-white">3.3M</span>
+              </div>
+            </div>
+            <div class="hlv-tl-item" style="flex: 1">
+              <h5>Cup Hoc Xem Bong</h5>
+              <p class="text-muted text-sm">(Sport YT channel)</p>
+              <div class="sub-tl-stats mt-sm">
+                <span class="badge border-white">11K</span>
+                <span class="badge border-white">1.6M</span>
+                <span class="badge border-white">91K</span>
+              </div>
+            </div>
+            <div class="hlv-tl-item" style="flex: 1">
+              <h5>The Watcher</h5>
+              <p class="text-muted text-sm">(Website)</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cards Section for HLV Online -->
+        <div class="project-showcase-cards mt-xl">
+          <!-- Card 1: HLV Online -->
+          <div class="showcase-card">
+            <div class="showcase-header">
+              <span class="showcase-year">2023</span>
+              <div class="showcase-title-row">
+                <div>
+                  <h4 class="showcase-title" style="margin-bottom: 0">
+                    HLV Online
+                  </h4>
+                  <span class="text-muted text-sm">(Sport YT Channel)</span>
+                </div>
+                <p class="showcase-desc">
+                  Our most successful project to date, achieved with our
+                  smallest team ever. By holding near absolute creative and
+                  management control, we proved that content is indeed
+                  omnipotent - beyond the reach. This project serves as a
+                  signature milestone, showcasing modern UI and semantic
+                  interfaces applied towards real connection.
+                </p>
+              </div>
+            </div>
+            <div class="showcase-stats-bar">
+              <div class="sc-stat">
+                <span class="icon">▶</span> 94K
+                <span class="label text-muted">Subscribers</span>
+              </div>
+              <div class="sc-stat text-primary">
+                9M <span class="label text-muted">Views</span>
+              </div>
+              <div class="sc-stat">
+                <span class="icon">f</span> 40K
+                <span class="label text-muted">Followers</span>
+              </div>
+              <div class="sc-stat text-primary">
+                972K <span class="label text-muted">Likes</span>
+              </div>
+            </div>
+            <div class="showcase-image-grid-large">
+              <p class="text-sm fw-bold mb-sm">Social media Images</p>
+              <div class="img-row-4">
+                <div class="img-placeholder bg-primary"></div>
+                <div class="img-placeholder bg-white"></div>
+                <div class="img-placeholder bg-dark"></div>
+                <div class="img-placeholder bg-primary"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: HLV Online Classic -->
+          <div class="showcase-card">
+            <div class="showcase-header">
+              <span class="showcase-year">2024</span>
+              <div class="showcase-title-row">
+                <div>
+                  <h4 class="showcase-title" style="margin-bottom: 0">
+                    HLV Online Classic
+                  </h4>
+                  <span class="text-muted text-sm">(Sport YT Channel)</span>
+                </div>
+                <p class="showcase-desc">
+                  A retro, narrative-driven approach to football content,
+                  focusing on nostalgic events and restoring the pure,
+                  humanistic and emotional connection with the audience.
+                </p>
+              </div>
+            </div>
+            <div class="showcase-stats-bar">
+              <div class="sc-stat">
+                <span class="icon">▶</span> 31K
+                <span class="label text-muted">Subscribers</span>
+              </div>
+              <div class="sc-stat text-primary">
+                3.3M <span class="label text-muted">Views</span>
+              </div>
+              <div class="sc-stat text-primary">
+                11M <span class="label text-muted">Impressions</span>
+              </div>
+              <div class="sc-stat text-primary">
+                93K <span class="label text-muted">Watch hours</span>
+              </div>
+            </div>
+            <div class="showcase-image-grid-large">
+              <p class="text-sm fw-bold mb-sm">Images</p>
+              <div class="img-row-6" style="display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--space-md);">
+                <img class="img-placeholder" src="images/hlv-online-classic/Logo.png" alt="HLV Classic Image 1" style="object-fit: cover;">
+                <img class="img-placeholder" src="images/hlv-online-classic/Bayern_Munnich_Ribery_Robben.png" alt="HLV Classic Image 2" style="object-fit: cover;">
+                <img class="img-placeholder" src="images/hlv-online-classic/Paul Scholes.png" alt="HLV Classic Image 3" style="object-fit: cover;">
+                <img class="img-placeholder" src="images/hlv-online-classic/lo ge.png" alt="HLV Classic Image 4" style="object-fit: cover;">
+                <img class="img-placeholder" src="images/hlv-online-classic/Pirlo.png" alt="HLV Classic Image 5" style="object-fit: cover;">
+                <img class="img-placeholder" src="images/hlv-online-classic/Trivela.png" alt="HLV Classic Image 6" style="object-fit: cover;">
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: HLV Onlive -->
+          <div class="showcase-card">
+            <div class="showcase-header">
+              <span class="showcase-year">2024</span>
+              <div class="showcase-title-row">
+                <div>
+                  <h4 class="showcase-title" style="margin-bottom: 0">
+                    HLV Onlive
+                  </h4>
+                  <span class="text-muted text-sm">(Livestream Channel)</span>
+                </div>
+                <p class="showcase-desc">
+                  A content channel focused on delivering real-time game
+                  interaction, immersive viewing, and engaging motion graphics
+                  to elevate audience passion and connectivity.
+                </p>
+              </div>
+            </div>
+            <div class="showcase-stats-bar">
+              <div class="sc-stat">
+                <span class="icon">▶</span> 8.3K
+                <span class="label text-muted">Subscribers</span>
+              </div>
+              <div class="sc-stat text-primary">
+                385K <span class="label text-muted">Views</span>
+              </div>
+              <div class="sc-stat text-primary">
+                600 <span class="label text-muted">Views/stream</span>
+              </div>
+              <div class="sc-stat text-primary">
+                77K <span class="label text-muted">Watch hours</span>
+              </div>
+            </div>
+            <div class="showcase-image-grid-large">
+              <p class="text-sm fw-bold mb-sm">Images</p>
+              <div class="img-row-4">
+                <img class="img-placeholder" src="logos/zen-tactics/3.jpg" alt="HLV Onlive Image 1" style="object-fit: cover;">
+                <img class="img-placeholder" src="images/hlv-onlive/13.jpg" alt="HLV Onlive Image 2" style="object-fit: cover;">
+                <img class="img-placeholder" src="images/hlv-onlive/epl 3.png" alt="HLV Onlive Image 3" style="object-fit: cover;">
+                <img class="img-placeholder" src="images/hlv-onlive/2.png" alt="HLV Onlive Image 4" style="object-fit: cover;">
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4: Cup Hoc Xem Bong -->
+          <div class="showcase-card">
+            <div class="showcase-header">
+              <span class="showcase-year">2025</span>
+              <div class="showcase-title-row">
+                <div>
+                  <h4 class="showcase-title" style="margin-bottom: 0">
+                    Cup Hoc Xem Bong
+                  </h4>
+                  <span class="text-muted text-sm">(Sport YT Channel)</span>
+                </div>
+                <p class="showcase-desc">
+                  A reality show format dedicated to finding and nurturing young
+                  talents in football esports viewing under HLV Online's
+                  channel. The best participants will form the foundation for a
+                  new generation (YouTube, Facebook, TikTok).
+                </p>
+              </div>
+            </div>
+            <div class="showcase-stats-bar">
+              <div class="sc-stat">
+                <span class="icon">▶</span> 11K
+                <span class="label text-muted">Subscribers</span>
+              </div>
+              <div class="sc-stat text-primary">
+                1.6M <span class="label text-muted">Views</span>
+              </div>
+              <div class="sc-stat">
+                <span class="icon">f</span> 51K
+                <span class="label text-muted">Followers</span>
+              </div>
+              <div class="sc-stat">
+                <span class="icon">tiktok</span> 40K
+                <span class="label text-muted">Followers</span>
+              </div>
+            </div>
+            <div class="showcase-image-grid-large">
+              <p class="text-sm fw-bold mb-sm">Images</p>
+              <div class="img-row-5" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--space-md);">
+                <img class="img-placeholder" src="images/cup-hoc-xem-bong/Mark logo.png" alt="Cup Hoc Xem Bong Image 1" style="object-fit: cover;">
+                <img class="img-placeholder" src="images/cup-hoc-xem-bong/Bản sao của Arsenal_va_Bayern_nhu_nay_thi_sao_Chelsea_an_uoc_ay.png" alt="Cup Hoc Xem Bong Image 2" style="object-fit: cover;">
+                <img class="img-placeholder" src="images/cup-hoc-xem-bong/6a.png" alt="Cup Hoc Xem Bong Image 3" style="object-fit: cover;">
+                <img class="img-placeholder" src="images/cup-hoc-xem-bong/4a.png" alt="Cup Hoc Xem Bong Image 4" style="object-fit: cover;">
+                <img class="img-placeholder" src="images/cup-hoc-xem-bong/2a (1).png" alt="Cup Hoc Xem Bong Image 5" style="object-fit: cover;">
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 5: Qua Bong Cuoi, Nem Ngon... -->
+          <div class="showcase-card">
+            <div class="showcase-header">
+              <span class="showcase-year">2025</span>
+              <div class="showcase-title-row">
+                <div>
+                  <h4 class="showcase-title" style="margin-bottom: 0">
+                    Qua Bong Cuoi, Nem Ngon...
+                  </h4>
+                  <span class="text-muted text-sm">(Outsource channels)</span>
+                </div>
+                <p class="showcase-desc">
+                  Collaborations with other media & entertainment
+                  agencies/organizations to deliver tailored services -
+                  everything from content strategy to video production or even
+                  bringing fully automated broadcast packages to massive events
+                  and play.
+                </p>
+              </div>
+            </div>
+            <div class="showcase-stats-bar">
+              <div class="sc-stat">
+                <span class="icon">▶</span> 22K
+                <span class="label text-muted">Subscribers</span>
+              </div>
+              <div class="sc-stat text-primary">
+                25M <span class="label text-muted">Views</span>
+              </div>
+              <div class="sc-stat">
+                <span class="icon">f</span> 14K
+                <span class="label text-muted">Followers</span>
+              </div>
+              <div class="sc-stat">
+                <span class="icon">tiktok</span> 40K
+                <span class="label text-muted">Followers</span>
+              </div>
+            </div>
+            <div class="showcase-image-grid-large">
+              <p class="text-sm fw-bold mb-sm">Social media Images</p>
+              <div class="img-row-4">
+                <div class="img-placeholder bg-dark"></div>
+                <div class="img-placeholder bg-white"></div>
+                <div class="img-placeholder bg-primary"></div>
+                <div class="img-placeholder bg-dark"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 6: The Watcher -->
+          <div class="showcase-card">
+            <div class="showcase-header">
+              <span class="showcase-year">2025</span>
+              <div class="showcase-title-row">
+                <div>
+                  <h4 class="showcase-title" style="margin-bottom: 0">
+                    The Watcher
+                  </h4>
+                  <span class="text-muted text-sm">(Website)</span>
+                </div>
+                <p class="showcase-desc">
+                  A premium subscription-based blog platform designed with a
+                  dark, minimalist aesthetic and an intuitive user interface
+                  (UI/UX). This project utilizes high-quality visuals alongside
+                  seamless interactive details (powered by smooth scroll
+                  interactions and CSS animations) for the interface, while
+                  providing an easily manageable backend/CMS panel for the
+                  admins, ensuring a 360-degree premium identity on every single
+                  point of customer interaction.
+                </p>
+              </div>
+            </div>
+            <div class="showcase-image-grid-large">
+              <p class="text-sm fw-bold mb-sm">UX/UI</p>
+              <div class="img-row-uxui">
+                <div
+                  class="img-placeholder bg-white"
+                  style="height: 300px"
+                ></div>
+                <div
+                  class="img-placeholder bg-dark"
+                  style="height: 300px; position: relative"
+                >
+                  <span
+                    class="text-muted text-sm"
+                    style="position: absolute; bottom: 10px; left: 10px"
+                    >Figma</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Thank You Section -->
+    <section class="thank-you-section" id="thank-you">
+      <div class="ty-bg">
+        <div class="ty-shape ty-shape-1"></div>
+        <div class="ty-shape ty-shape-2"></div>
+      </div>
+      <div class="container ty-content">
+        <div class="ty-grid">
+          <div class="ty-left">
+            <div class="ty-logo">
+              <svg
+                width="200"
+                height="150"
+                viewBox="0 0 200 150"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect y="70" width="40" height="40" fill="#253BFF" />
+                <path d="M0 50 L70 120 L100 90 L30 20 Z" fill="#141843" />
+                <path d="M100 90 L170 20 L200 50 L130 120 Z" fill="#141843" />
+                <rect x="160" y="50" width="40" height="70" fill="#141843" />
+              </svg>
+            </div>
+            <div class="ty-text" style="margin-top: auto; padding-bottom: 2rem">
+              <h2 class="text-white" style="font-size: 4rem">
+                THANK YOU<br />FOR YOUR TIME
+              </h2>
+            </div>
+          </div>
+          <div class="ty-right">
+            <p class="ty-subtext text-white" style="font-size: 1.5rem">
+              Where Vision Meets<br />its Architect
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
 </html>

@@ -17,14 +17,137 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
+    <!-- Side Navigation -->
+    <nav class="side-nav">
+      <div class="side-nav-group">
+        <a href="#hero" class="side-nav-item active">
+          <span class="side-nav-label">Home</span>
+          <span class="side-nav-dot"></span>
+        </a>
+      </div>
+      <div class="side-nav-group">
+        <a href="#toc" class="side-nav-item">
+          <span class="side-nav-label">Table of Content</span>
+          <span class="side-nav-dot"></span>
+        </a>
+      </div>
+      <div class="side-nav-group">
+        <a href="#about" class="side-nav-item">
+          <span class="side-nav-label">Who is MYM</span>
+          <span class="side-nav-dot"></span>
+        </a>
+      </div>
+      <div class="side-nav-group">
+        <a href="#overview" class="side-nav-item">
+          <span class="side-nav-label">Overview</span>
+          <span class="side-nav-dot"></span>
+        </a>
+      </div>
+      <div class="side-nav-group">
+        <a href="#zen-tactics" class="side-nav-item">
+          <span class="side-nav-label">Zen Tactics</span>
+          <span class="side-nav-dot"></span>
+        </a>
+        <div class="side-nav-children">
+          <div class="side-nav-children-inner">
+            <a href="#prj-zen-tactics" class="side-nav-item side-nav-subitem"
+              ><span class="side-nav-label"
+                ><span class="side-nav-year">2021 &bull;</span> Zen
+                Tactics</span
+              ><span class="side-nav-dot"></span
+            ></a>
+            <a
+              href="#prj-modern-football"
+              class="side-nav-item side-nav-subitem"
+              ><span class="side-nav-label"
+                ><span class="side-nav-year">2022 &bull;</span> Modern
+                Football</span
+              ><span class="side-nav-dot"></span
+            ></a>
+            <a href="#prj-zen-cine" class="side-nav-item side-nav-subitem"
+              ><span class="side-nav-label"
+                ><span class="side-nav-year">2022 &bull;</span> Zen Cine</span
+              ><span class="side-nav-dot"></span
+            ></a>
+            <a href="#prj-tactics-duo" class="side-nav-item side-nav-subitem"
+              ><span class="side-nav-label"
+                ><span class="side-nav-year">2022 &bull;</span> Tactics
+                Duo</span
+              ><span class="side-nav-dot"></span
+            ></a>
+            <a href="#prj-zen-fifa" class="side-nav-item side-nav-subitem"
+              ><span class="side-nav-label"
+                ><span class="side-nav-year">2022 &bull;</span> Zen FIFA</span
+              ><span class="side-nav-dot"></span
+            ></a>
+            <a href="#prj-zentlemen" class="side-nav-item side-nav-subitem"
+              ><span class="side-nav-label"
+                ><span class="side-nav-year">2022 &bull;</span> Zentlemen</span
+              ><span class="side-nav-dot"></span
+            ></a>
+          </div>
+        </div>
+      </div>
+      <div class="side-nav-group">
+        <a href="#hlv-online" class="side-nav-item">
+          <span class="side-nav-label">HLV Online</span>
+          <span class="side-nav-dot"></span>
+        </a>
+        <div class="side-nav-children">
+          <div class="side-nav-children-inner">
+            <a href="#prj-hlv-online" class="side-nav-item side-nav-subitem"
+              ><span class="side-nav-label"
+                ><span class="side-nav-year">2023 &bull;</span> HLV Online</span
+              ><span class="side-nav-dot"></span
+            ></a>
+            <a href="#prj-hlv-classic" class="side-nav-item side-nav-subitem"
+              ><span class="side-nav-label"
+                ><span class="side-nav-year">2024 &bull;</span> HLV
+                Classic</span
+              ><span class="side-nav-dot"></span
+            ></a>
+            <a href="#prj-hlv-onlive" class="side-nav-item side-nav-subitem"
+              ><span class="side-nav-label"
+                ><span class="side-nav-year">2024 &bull;</span> HLV Onlive</span
+              ><span class="side-nav-dot"></span
+            ></a>
+            <a href="#prj-cup-hoc" class="side-nav-item side-nav-subitem"
+              ><span class="side-nav-label"
+                ><span class="side-nav-year">2025 &bull;</span> Cup Hoc Xem
+                Bong</span
+              ><span class="side-nav-dot"></span
+            ></a>
+            <a href="#prj-qua-bong" class="side-nav-item side-nav-subitem"
+              ><span class="side-nav-label"
+                ><span class="side-nav-year">2025 &bull;</span> Outsource
+                Channels</span
+              ><span class="side-nav-dot"></span
+            ></a>
+            <a href="#prj-the-watcher" class="side-nav-item side-nav-subitem"
+              ><span class="side-nav-label"
+                ><span class="side-nav-year">2025 &bull;</span> The
+                Watcher</span
+              ><span class="side-nav-dot"></span
+            ></a>
+          </div>
+        </div>
+      </div>
+      <div class="side-nav-group">
+        <a href="#thank-you" class="side-nav-item">
+          <span class="side-nav-label">Thank You</span>
+          <span class="side-nav-dot"></span>
+        </a>
+      </div>
+    </nav>
+
     <!-- Hero Section -->
     <section class="hero" id="hero">
       <div class="hero-bg">
         <!-- Simulated background from design -->
-        <div class="shape-triangle-1"></div>
+        <div class="shape-triangle-1 parallax-layer" data-speed="20"></div>
       </div>
       <div class="container hero-content">
-        <div class="hero-logo-large">
+        <div class="hero-logo-large animate-float">
           <!-- Abstract Logo representation -->
           <svg
             width="200"
@@ -48,7 +171,7 @@
           <h2>Meet Your Maker</h2>
         </div>
         <div class="hero-subtext">
-          <p>Where Vision Meets<br />its Architect</p>
+          <p>Where Vision Meets<br />Its Architect</p>
         </div>
       </div>
     </section>
@@ -66,7 +189,15 @@
         <div class="toc-card">
           <div class="toc-list">
             <!-- Item 1 -->
-            <div class="toc-item">
+            <div
+              class="toc-item"
+              onclick="
+                document
+                  .getElementById('about')
+                  .scrollIntoView({ behavior: 'smooth' })
+              "
+              style="cursor: pointer"
+            >
               <div class="toc-number">1.</div>
               <div class="toc-content">
                 <div class="toc-title">
@@ -77,16 +208,61 @@
                   <div>
                     <div class="toc-category">Graphic Designing</div>
                     <ul class="toc-sublist">
-                      <li><span>A.</span> Content Creator</li>
-                      <li><span>B.</span> Graphic Designer</li>
-                      <li><span>C.</span> Cinematic video editor</li>
+                      <li
+                        onclick="
+                          document
+                            .getElementById('srv-content')
+                            .scrollIntoView({ behavior: 'smooth' })
+                        "
+                        style="cursor: pointer"
+                      >
+                        <span>A.</span> Content Creator
+                      </li>
+                      <li
+                        onclick="
+                          document
+                            .getElementById('srv-graphic')
+                            .scrollIntoView({ behavior: 'smooth' })
+                        "
+                        style="cursor: pointer"
+                      >
+                        <span>B.</span> Graphic Designer
+                      </li>
+                      <li
+                        onclick="
+                          document
+                            .getElementById('srv-video')
+                            .scrollIntoView({ behavior: 'smooth' })
+                        "
+                        style="cursor: pointer"
+                      >
+                        <span>C.</span> Cinematic video editor
+                      </li>
                     </ul>
                   </div>
                   <div>
                     <div class="toc-category">Developing</div>
                     <ul class="toc-sublist">
-                      <li><span>A.</span> Software Designer & Developer</li>
-                      <li><span>B.</span> UX/UI Designer & Developer</li>
+                      <li
+                        onclick="
+                          document
+                            .getElementById('srv-software')
+                            .scrollIntoView({ behavior: 'smooth' })
+                        "
+                        style="cursor: pointer"
+                      >
+                        <span>A.</span> Software Designer & Developer
+                      </li>
+                      <li
+                        onclick="
+                          document
+                            .getElementById('srv-uxui')
+                            .scrollIntoView({ behavior: 'smooth' })
+                        "
+                        style="cursor: pointer"
+                      >
+                        <span>B.</span> UX/UI Designer & Developer
+                      </li>
                     </ul>
                   </div>
                   <div>
@@ -94,7 +270,16 @@
                       Live Streaming
                     </div>
                     <ul class="toc-sublist">
-                      <li><span>A.</span> Livestream production</li>
+                      <li
+                        onclick="
+                          document
+                            .getElementById('srv-livestream')
+                            .scrollIntoView({ behavior: 'smooth' })
+                        "
+                        style="cursor: pointer"
+                      >
+                        <span>A.</span> Livestream production
+                      </li>
                     </ul>
                   </div>
                 </div>
@@ -102,7 +287,15 @@
             </div>
 
             <!-- Item 2 -->
-            <div class="toc-item">
+            <div
+              class="toc-item"
+              onclick="
+                document
+                  .getElementById('overview')
+                  .scrollIntoView({ behavior: 'smooth' })
+              "
+              style="cursor: pointer"
+            >
               <div class="toc-number">2.</div>
               <div class="toc-content">
                 <div class="toc-title">
@@ -122,32 +315,88 @@
 
                 <!-- Projects Group 1 -->
                 <div style="margin-top: 1rem">
-                  <div class="toc-title" style="margin-bottom: 0.5rem">
+                  <div
+                    class="toc-title"
+                    onclick="
+                      document
+                        .getElementById('zen-tactics')
+                        .scrollIntoView({ behavior: 'smooth' })
+                    "
+                    style="margin-bottom: 0.5rem; cursor: pointer"
+                  >
                     <span>Zen Tactics</span>
                     <span class="toc-page">04 - 07</span>
                   </div>
                   <div class="toc-projects-grid">
-                    <div class="project-item">
+                    <div
+                      class="project-item"
+                      onclick="
+                        document
+                          .getElementById('prj-zen-tactics')
+                          .scrollIntoView({ behavior: 'smooth' })
+                      "
+                      style="cursor: pointer"
+                    >
                       <span class="project-name">Zen Tactics</span>
                       <span class="project-type">(Livestream channel)</span>
                     </div>
-                    <div class="project-item">
+                    <div
+                      class="project-item"
+                      onclick="
+                        document
+                          .getElementById('prj-modern-football')
+                          .scrollIntoView({ behavior: 'smooth' })
+                      "
+                      style="cursor: pointer"
+                    >
                       <span class="project-name">Modern Football</span>
                       <span class="project-type">(Sport YT channel)</span>
                     </div>
-                    <div class="project-item">
+                    <div
+                      class="project-item"
+                      onclick="
+                        document
+                          .getElementById('prj-zen-cine')
+                          .scrollIntoView({ behavior: 'smooth' })
+                      "
+                      style="cursor: pointer"
+                    >
                       <span class="project-name">Zen Cine & Esports</span>
                       <span class="project-type">(Other YT channel)</span>
                     </div>
-                    <div class="project-item">
+                    <div
+                      class="project-item"
+                      onclick="
+                        document
+                          .getElementById('prj-tactics-duo')
+                          .scrollIntoView({ behavior: 'smooth' })
+                      "
+                      style="cursor: pointer"
+                    >
                       <span class="project-name">The Tactics Duo</span>
                       <span class="project-type">(Outsource projects)</span>
                     </div>
-                    <div class="project-item">
+                    <div
+                      class="project-item"
+                      onclick="
+                        document
+                          .getElementById('prj-zen-fifa')
+                          .scrollIntoView({ behavior: 'smooth' })
+                      "
+                      style="cursor: pointer"
+                    >
                       <span class="project-name">Zen FIFA<br />eWorld Cup</span>
                       <span class="project-type">(Public Event)</span>
                     </div>
-                    <div class="project-item">
+                    <div
+                      class="project-item"
+                      onclick="
+                        document
+                          .getElementById('prj-zentlemen')
+                          .scrollIntoView({ behavior: 'smooth' })
+                      "
+                      style="cursor: pointer"
+                    >
                       <span class="project-name">Zentlemen</span>
                       <span class="project-type">(Website)</span>
                     </div>
@@ -156,34 +405,90 @@
 
                 <!-- Projects Group 2 -->
                 <div style="margin-top: 2rem">
-                  <div class="toc-title" style="margin-bottom: 0.5rem">
+                  <div
+                    class="toc-title"
+                    onclick="
+                      document
+                        .getElementById('hlv-online')
+                        .scrollIntoView({ behavior: 'smooth' })
+                    "
+                    style="margin-bottom: 0.5rem; cursor: pointer"
+                  >
                     <span>HLV Online</span>
                     <span class="toc-page">08 - 11</span>
                   </div>
                   <div class="toc-projects-grid">
-                    <div class="project-item">
+                    <div
+                      class="project-item"
+                      onclick="
+                        document
+                          .getElementById('prj-hlv-online')
+                          .scrollIntoView({ behavior: 'smooth' })
+                      "
+                      style="cursor: pointer"
+                    >
                       <span class="project-name">HLV Online</span>
                       <span class="project-type">(Sport YT channel)</span>
                     </div>
-                    <div class="project-item">
+                    <div
+                      class="project-item"
+                      onclick="
+                        document
+                          .getElementById('prj-hlv-classic')
+                          .scrollIntoView({ behavior: 'smooth' })
+                      "
+                      style="cursor: pointer"
+                    >
                       <span class="project-name">HLV Online<br />Classic</span>
                       <span class="project-type">(Sport YT channel)</span>
                     </div>
-                    <div class="project-item">
+                    <div
+                      class="project-item"
+                      onclick="
+                        document
+                          .getElementById('prj-hlv-onlive')
+                          .scrollIntoView({ behavior: 'smooth' })
+                      "
+                      style="cursor: pointer"
+                    >
                       <span class="project-name">HLV Onlive</span>
                       <span class="project-type">(Livestream channel)</span>
                     </div>
-                    <div class="project-item">
+                    <div
+                      class="project-item"
+                      onclick="
+                        document
+                          .getElementById('prj-cup-hoc')
+                          .scrollIntoView({ behavior: 'smooth' })
+                      "
+                      style="cursor: pointer"
+                    >
                       <span class="project-name">Cup Hoc<br />Xem Bong</span>
                       <span class="project-type">(Sport YT channel)</span>
                     </div>
-                    <div class="project-item">
+                    <div
+                      class="project-item"
+                      onclick="
+                        document
+                          .getElementById('prj-qua-bong')
+                          .scrollIntoView({ behavior: 'smooth' })
+                      "
+                      style="cursor: pointer"
+                    >
                       <span class="project-name"
                         >Qua Bong Cuoi,<br />Nem Ngon...</span
                       >
                       <span class="project-type">(Outsource projects)</span>
                     </div>
-                    <div class="project-item">
+                    <div
+                      class="project-item"
+                      onclick="
+                        document
+                          .getElementById('prj-the-watcher')
+                          .scrollIntoView({ behavior: 'smooth' })
+                      "
+                      style="cursor: pointer"
+                    >
                       <span class="project-name">The Watcher</span>
                       <span class="project-type">(Website)</span>
                     </div>
@@ -225,7 +530,7 @@
 
         <div class="services-grid">
           <!-- Service Card 1 -->
-          <div class="service-card">
+          <div class="service-card" id="srv-content">
             <div class="service-icon">📝</div>
             <h4 class="service-title">Content Creator</h4>
             <p class="service-desc">
@@ -236,7 +541,7 @@
             </p>
           </div>
           <!-- Service Card 2 -->
-          <div class="service-card">
+          <div class="service-card" id="srv-graphic">
             <div class="service-icon">🎨</div>
             <h4 class="service-title">Graphic Designer</h4>
             <p class="service-desc">
@@ -247,7 +552,7 @@
             </p>
           </div>
           <!-- Service Card 3 -->
-          <div class="service-card">
+          <div class="service-card" id="srv-video">
             <div class="service-icon">🎬</div>
             <h4 class="service-title">Cinematic Video Editor</h4>
             <p class="service-desc">
@@ -258,7 +563,7 @@
             </p>
           </div>
           <!-- Service Card 4 -->
-          <div class="service-card">
+          <div class="service-card" id="srv-software">
             <div class="service-icon">💻</div>
             <h4 class="service-title">Software Designer & Developer</h4>
             <p class="service-desc">
@@ -269,7 +574,7 @@
             </p>
           </div>
           <!-- Service Card 5 -->
-          <div class="service-card">
+          <div class="service-card" id="srv-uxui">
             <div class="service-icon">📱</div>
             <h4 class="service-title">UX/ UI Designer & Developer</h4>
             <p class="service-desc">
@@ -280,7 +585,7 @@
             </p>
           </div>
           <!-- Service Card 6 -->
-          <div class="service-card">
+          <div class="service-card" id="srv-livestream">
             <div class="service-icon">📡</div>
             <h4 class="service-title">Livestream Production</h4>
             <p class="service-desc">
@@ -316,11 +621,9 @@
                 <div class="stat-circle bg-white text-dark">44K</div>
                 <span class="stat-label">Followers</span>
               </div>
-              <div
-                class="stat-circle bg-white text-primary fw-bold"
-                style="font-size: 1.25rem"
-              >
-                6.3M
+              <div class="stat-item">
+                <div class="stat-circle bg-white text-dark">6.3M</div>
+                <span class="stat-label">Views</span>
               </div>
               <span
                 class="stat-label"
@@ -552,7 +855,7 @@
         <!-- Cards Section -->
         <div class="project-showcase-cards">
           <!-- Card 1 -->
-          <div class="showcase-card">
+          <div class="showcase-card" id="prj-zen-tactics">
             <div class="showcase-header">
               <span class="showcase-year">2021</span>
               <h4 class="showcase-title">
@@ -586,15 +889,35 @@
               </div>
             </div>
             <div class="img-row-4">
-              <img class="img-placeholder" src="images/zen-tactics/472789356_898720405677394_7598917261126547216_n.jpg" alt="Zen Tactics Image 1" style="object-fit: cover;">
-              <img class="img-placeholder" src="images/zen-tactics/472599692_895716355977799_4787358625607068956_n.jpg" alt="Zen Tactics Image 2" style="object-fit: cover;">
-              <img class="img-placeholder" src="images/zen-tactics/472426126_895709369311831_6879265775689816510_n.jpg" alt="Zen Tactics Image 3" style="object-fit: cover;">
-              <img class="img-placeholder" src="images/zen-tactics/472179218_895044539378314_2909086318927515435_n.jpg" alt="Zen Tactics Image 4" style="object-fit: cover;">
+              <img
+                class="img-placeholder"
+                src="images/zen-tactics/472789356_898720405677394_7598917261126547216_n.jpg"
+                alt="Zen Tactics Image 1"
+                style="object-fit: cover"
+              />
+              <img
+                class="img-placeholder"
+                src="images/zen-tactics/472599692_895716355977799_4787358625607068956_n.jpg"
+                alt="Zen Tactics Image 2"
+                style="object-fit: cover"
+              />
+              <img
+                class="img-placeholder"
+                src="images/zen-tactics/472426126_895709369311831_6879265775689816510_n.jpg"
+                alt="Zen Tactics Image 3"
+                style="object-fit: cover"
+              />
+              <img
+                class="img-placeholder"
+                src="images/zen-tactics/472179218_895044539378314_2909086318927515435_n.jpg"
+                alt="Zen Tactics Image 4"
+                style="object-fit: cover"
+              />
             </div>
           </div>
 
           <!-- Card 2 -->
-          <div class="showcase-card">
+          <div class="showcase-card" id="prj-modern-football">
             <div class="showcase-header">
               <span class="showcase-year">2022</span>
               <h4 class="showcase-title">
@@ -623,15 +946,35 @@
               </div>
             </div>
             <div class="img-row-4">
-              <img class="img-placeholder" src="logos/zen-tactics/1.jpg" alt="Modern Football Image 1" style="object-fit: cover;">
-              <img class="img-placeholder" src="images/modern-football/1.jpg" alt="Modern Football Image 2" style="object-fit: cover;">
-              <img class="img-placeholder" src="images/modern-football/2.jpg" alt="Modern Football Image 3" style="object-fit: cover;">
-              <img class="img-placeholder" src="images/modern-football/3.jpg" alt="Modern Football Image 4" style="object-fit: cover;">
+              <img
+                class="img-placeholder"
+                src="logos/zen-tactics/1.jpg"
+                alt="Modern Football Image 1"
+                style="object-fit: cover"
+              />
+              <img
+                class="img-placeholder"
+                src="images/modern-football/1.jpg"
+                alt="Modern Football Image 2"
+                style="object-fit: cover"
+              />
+              <img
+                class="img-placeholder"
+                src="images/modern-football/2.jpg"
+                alt="Modern Football Image 3"
+                style="object-fit: cover"
+              />
+              <img
+                class="img-placeholder"
+                src="images/modern-football/3.jpg"
+                alt="Modern Football Image 4"
+                style="object-fit: cover"
+              />
             </div>
           </div>
 
           <!-- Card 3: Zen Cine & Esports -->
-          <div class="showcase-card">
+          <div class="showcase-card" id="prj-zen-cine">
             <div class="showcase-header">
               <span class="showcase-year">2022</span>
               <div class="showcase-title-row">
@@ -643,10 +986,15 @@
                 </div>
                 <div>
                   <p class="showcase-desc mb-sm">
-                    A channel under the Zen system focusing on film content and perspectives from historical development, academic theory, to content analyzing stories and characters.
+                    A channel under the Zen system focusing on film content and
+                    perspectives from historical development, academic theory,
+                    to content analyzing stories and characters.
                   </p>
                   <p class="showcase-desc">
-                    A channel under the Zen system, Zen Esports is an information channel about esports tactics, covering in Esports. On YouTube, it produces in-depth analysis videos about matches, players, and overall strategies.
+                    A channel under the Zen system, Zen Esports is an
+                    information channel about esports tactics, covering in
+                    Esports. On YouTube, it produces in-depth analysis videos
+                    about matches, players, and overall strategies.
                   </p>
                 </div>
               </div>
@@ -667,16 +1015,36 @@
             <div class="showcase-image-grid-large">
               <p class="text-sm fw-bold mb-sm">Images</p>
               <div class="img-row-4">
-                <img class="img-placeholder" src="images/zen-cine/295828058_104244065711818_4950345619294456168_n.jpg" alt="Zen Cine Image 1" style="object-fit: cover;">
-                <img class="img-placeholder" src="images/zen-cine/297812997_113979661404925_4704299858387917655_n.jpg" alt="Zen Cine Image 2" style="object-fit: cover;">
-                <img class="img-placeholder" src="images/zen-esport/2.png" alt="Zen Esports Image 1" style="object-fit: cover;">
-                <img class="img-placeholder" src="images/zen-esport/5.png" alt="Zen Esports Image 2" style="object-fit: cover;">
+                <img
+                  class="img-placeholder"
+                  src="images/zen-cine/295828058_104244065711818_4950345619294456168_n.jpg"
+                  alt="Zen Cine Image 1"
+                  style="object-fit: cover"
+                />
+                <img
+                  class="img-placeholder"
+                  src="images/zen-cine/297812997_113979661404925_4704299858387917655_n.jpg"
+                  alt="Zen Cine Image 2"
+                  style="object-fit: cover"
+                />
+                <img
+                  class="img-placeholder"
+                  src="images/zen-esport/2.png"
+                  alt="Zen Esports Image 1"
+                  style="object-fit: cover"
+                />
+                <img
+                  class="img-placeholder"
+                  src="images/zen-esport/5.png"
+                  alt="Zen Esports Image 2"
+                  style="object-fit: cover"
+                />
               </div>
             </div>
           </div>
 
           <!-- Card 4: The Tactics Duo -->
-          <div class="showcase-card">
+          <div class="showcase-card" id="prj-tactics-duo">
             <div class="showcase-header">
               <span class="showcase-year">2022</span>
               <div class="showcase-title-row">
@@ -687,7 +1055,10 @@
                   <span class="text-muted text-sm">(Outsource channel)</span>
                 </div>
                 <p class="showcase-desc">
-                  A page focused on expert analysis of each match before kickoff and heavy on graphic design skills, in just one year we have reached traffic of up to 600k views despite having only over 3 thousand subscribers, equivalent to more than 200 times.
+                  A page focused on expert analysis of each match before kickoff
+                  and heavy on graphic design skills, in just one year we have
+                  reached traffic of up to 600k views despite having only over 3
+                  thousand subscribers, equivalent to more than 200 times.
                 </p>
               </div>
             </div>
@@ -709,18 +1080,50 @@
             </div>
             <div class="showcase-image-grid-large">
               <p class="text-sm fw-bold mb-sm">Images</p>
-              <div class="img-row-5" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--space-md);">
-                <img class="img-placeholder" src="images/tactics-duo/309459643_3421573241395550_5199766547589067483_n.jpg" alt="Tactics Duo Image 1" style="object-fit: cover;">
-                <img class="img-placeholder" src="images/tactics-duo/472270521_576889831872912_1974374757049650913_n.jpg" alt="Tactics Duo Image 2" style="object-fit: cover;">
-                <img class="img-placeholder" src="images/tactics-duo/473992265_586856844209544_1402096003712105981_n.jpg" alt="Tactics Duo Image 3" style="object-fit: cover;">
-                <img class="img-placeholder" src="images/tactics-duo/476110603_597252313169997_211867323366721269_n.jpg" alt="Tactics Duo Image 4" style="object-fit: cover;">
-                <img class="img-placeholder" src="images/tactics-duo/474148830_588211170740778_6105490074470537544_n.jpg" alt="Tactics Duo Image 5" style="object-fit: cover;">
+              <div
+                class="img-row-5"
+                style="
+                  display: grid;
+                  grid-template-columns: repeat(5, 1fr);
+                  gap: var(--space-md);
+                "
+              >
+                <img
+                  class="img-placeholder"
+                  src="images/tactics-duo/309459643_3421573241395550_5199766547589067483_n.jpg"
+                  alt="Tactics Duo Image 1"
+                  style="object-fit: cover"
+                />
+                <img
+                  class="img-placeholder"
+                  src="images/tactics-duo/472270521_576889831872912_1974374757049650913_n.jpg"
+                  alt="Tactics Duo Image 2"
+                  style="object-fit: cover"
+                />
+                <img
+                  class="img-placeholder"
+                  src="images/tactics-duo/473992265_586856844209544_1402096003712105981_n.jpg"
+                  alt="Tactics Duo Image 3"
+                  style="object-fit: cover"
+                />
+                <img
+                  class="img-placeholder"
+                  src="images/tactics-duo/476110603_597252313169997_211867323366721269_n.jpg"
+                  alt="Tactics Duo Image 4"
+                  style="object-fit: cover"
+                />
+                <img
+                  class="img-placeholder"
+                  src="images/tactics-duo/474148830_588211170740778_6105490074470537544_n.jpg"
+                  alt="Tactics Duo Image 5"
+                  style="object-fit: cover"
+                />
               </div>
             </div>
           </div>
 
-          <!-- Card 5: Zen FIFA23 eWorld Cup -->
-          <div class="showcase-card">
+          <!-- Card 5: Zen FIFA eWorld Cup -->
+          <div class="showcase-card" id="prj-zen-fifa">
             <div class="showcase-header">
               <span class="showcase-year">2022</span>
               <div class="showcase-title-row">
@@ -741,27 +1144,98 @@
             </div>
             <div class="showcase-image-grid-large">
               <p class="text-sm fw-bold mb-sm">Event photographs</p>
-              <div class="img-row-5" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--space-md);">
-                <img class="img-placeholder" src="images/zen-fifa-eworldcup/475831082_944879471080415_4984727195396708880_n.jpg" alt="Event Photo 1" style="object-fit: cover;">
-                <img class="img-placeholder" src="images/zen-fifa-eworldcup/475872175_944879587747070_2330471353124767265_n.jpg" alt="Event Photo 2" style="object-fit: cover;">
-                <img class="img-placeholder" src="images/zen-fifa-eworldcup/475684476_944879924413703_8127607533985552413_n.jpg" alt="Event Photo 3" style="object-fit: cover;">
-                <img class="img-placeholder" src="images/zen-fifa-eworldcup/475677583_944879651080397_2228180341651416688_n.jpg" alt="Event Photo 4" style="object-fit: cover;">
-                <img class="img-placeholder" src="images/zen-fifa-eworldcup/475558328_944879894413706_2573176993309625017_n.jpg" alt="Event Photo 5" style="object-fit: cover;">
+              <div
+                class="img-row-5"
+                style="
+                  display: grid;
+                  grid-template-columns: repeat(5, 1fr);
+                  gap: var(--space-md);
+                "
+              >
+                <img
+                  class="img-placeholder"
+                  src="images/zen-fifa-eworldcup/475831082_944879471080415_4984727195396708880_n.jpg"
+                  alt="Event Photo 1"
+                  style="object-fit: cover"
+                />
+                <img
+                  class="img-placeholder"
+                  src="images/zen-fifa-eworldcup/475872175_944879587747070_2330471353124767265_n.jpg"
+                  alt="Event Photo 2"
+                  style="object-fit: cover"
+                />
+                <img
+                  class="img-placeholder"
+                  src="images/zen-fifa-eworldcup/475684476_944879924413703_8127607533985552413_n.jpg"
+                  alt="Event Photo 3"
+                  style="object-fit: cover"
+                />
+                <img
+                  class="img-placeholder"
+                  src="images/zen-fifa-eworldcup/475677583_944879651080397_2228180341651416688_n.jpg"
+                  alt="Event Photo 4"
+                  style="object-fit: cover"
+                />
+                <img
+                  class="img-placeholder"
+                  src="images/zen-fifa-eworldcup/475558328_944879894413706_2573176993309625017_n.jpg"
+                  alt="Event Photo 5"
+                  style="object-fit: cover"
+                />
               </div>
-              <p class="text-sm fw-bold mb-sm mt-md" style="margin-top: 2rem;">Social media Images</p>
-              <div class="img-row-6" style="display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--space-md);">
-                <img class="img-placeholder" src="images/zen-fifa-eworldcup/475442045_944876027747426_7192855859758644955_n.jpg" alt="Social Media 1" style="object-fit: cover;">
-                <img class="img-placeholder" src="images/zen-fifa-eworldcup/475638227_944877357747293_4537695898040034537_n.jpg" alt="Social Media 2" style="object-fit: cover;">
-                <img class="img-placeholder" src="images/zen-fifa-eworldcup/475917156_944875434414152_4672534877754149075_n.jpg" alt="Social Media 3" style="object-fit: cover;">
-                <img class="img-placeholder" src="images/zen-fifa-eworldcup/475517253_944878681080494_2516129185662769711_n.jpg" alt="Social Media 4" style="object-fit: cover;">
-                <img class="img-placeholder" src="images/zen-fifa-eworldcup/475563734_944878747747154_6318760968757018323_n.jpg" alt="Social Media 5" style="object-fit: cover;">
-                <img class="img-placeholder" src="images/zen-fifa-eworldcup/475934640_944876517747377_6869799041919072697_n.jpg" alt="Social Media 6" style="object-fit: cover;">
+              <p class="text-sm fw-bold mb-sm mt-md" style="margin-top: 2rem">
+                Social media Images
+              </p>
+              <div
+                class="img-row-6"
+                style="
+                  display: grid;
+                  grid-template-columns: repeat(6, 1fr);
+                  gap: var(--space-md);
+                "
+              >
+                <img
+                  class="img-placeholder"
+                  src="images/zen-fifa-eworldcup/475442045_944876027747426_7192855859758644955_n.jpg"
+                  alt="Social Media 1"
+                  style="object-fit: cover"
+                />
+                <img
+                  class="img-placeholder"
+                  src="images/zen-fifa-eworldcup/475638227_944877357747293_4537695898040034537_n.jpg"
+                  alt="Social Media 2"
+                  style="object-fit: cover"
+                />
+                <img
+                  class="img-placeholder"
+                  src="images/zen-fifa-eworldcup/475917156_944875434414152_4672534877754149075_n.jpg"
+                  alt="Social Media 3"
+                  style="object-fit: cover"
+                />
+                <img
+                  class="img-placeholder"
+                  src="images/zen-fifa-eworldcup/475517253_944878681080494_2516129185662769711_n.jpg"
+                  alt="Social Media 4"
+                  style="object-fit: cover"
+                />
+                <img
+                  class="img-placeholder"
+                  src="images/zen-fifa-eworldcup/475563734_944878747747154_6318760968757018323_n.jpg"
+                  alt="Social Media 5"
+                  style="object-fit: cover"
+                />
+                <img
+                  class="img-placeholder"
+                  src="images/zen-fifa-eworldcup/475934640_944876517747377_6869799041919072697_n.jpg"
+                  alt="Social Media 6"
+                  style="object-fit: cover"
+                />
               </div>
             </div>
           </div>
 
           <!-- Card 6: Zentlemen -->
-          <div class="showcase-card">
+          <div class="showcase-card" id="prj-zentlemen">
             <div class="showcase-header">
               <span class="showcase-year">2022</span>
               <div class="showcase-title-row">
@@ -779,9 +1253,23 @@
             </div>
             <div class="showcase-image-grid-large">
               <div class="img-row-uxui">
-                <img class="img-placeholder bg-dark" src="images/zentlemen/image.png" alt="Zentlemen UX/UI 1" style="aspect-ratio: auto; object-position: top;">
-                <div style="position: relative;">
-                  <img class="img-placeholder bg-dark" src="images/zentlemen/image copy.png" alt="Zentlemen UX/UI 2" style="aspect-ratio: auto; object-position: top; border: 1px solid rgba(255, 255, 255, 0.2);">
+                <img
+                  class="img-placeholder bg-dark"
+                  src="images/zentlemen/image.png"
+                  alt="Zentlemen UX/UI 1"
+                  style="aspect-ratio: auto; object-position: top"
+                />
+                <div style="position: relative">
+                  <img
+                    class="img-placeholder bg-dark"
+                    src="images/zentlemen/image copy.png"
+                    alt="Zentlemen UX/UI 2"
+                    style="
+                      aspect-ratio: auto;
+                      object-position: top;
+                      border: 1px solid rgba(255, 255, 255, 0.2);
+                    "
+                  />
                 </div>
               </div>
             </div>
@@ -925,7 +1413,7 @@
         <!-- Cards Section for HLV Online -->
         <div class="project-showcase-cards mt-xl">
           <!-- Card 1: HLV Online -->
-          <div class="showcase-card">
+          <div class="showcase-card" id="prj-hlv-online">
             <div class="showcase-header">
               <span class="showcase-year">2023</span>
               <div class="showcase-title-row">
@@ -973,7 +1461,7 @@
           </div>
 
           <!-- Card 2: HLV Online Classic -->
-          <div class="showcase-card">
+          <div class="showcase-card" id="prj-hlv-classic">
             <div class="showcase-header">
               <span class="showcase-year">2024</span>
               <div class="showcase-title-row">
@@ -1007,19 +1495,56 @@
             </div>
             <div class="showcase-image-grid-large">
               <p class="text-sm fw-bold mb-sm">Images</p>
-              <div class="img-row-6" style="display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--space-md);">
-                <img class="img-placeholder" src="images/hlv-online-classic/Logo.png" alt="HLV Classic Image 1" style="object-fit: cover;">
-                <img class="img-placeholder" src="images/hlv-online-classic/Bayern_Munnich_Ribery_Robben.png" alt="HLV Classic Image 2" style="object-fit: cover;">
-                <img class="img-placeholder" src="images/hlv-online-classic/Paul Scholes.png" alt="HLV Classic Image 3" style="object-fit: cover;">
-                <img class="img-placeholder" src="images/hlv-online-classic/lo ge.png" alt="HLV Classic Image 4" style="object-fit: cover;">
-                <img class="img-placeholder" src="images/hlv-online-classic/Pirlo.png" alt="HLV Classic Image 5" style="object-fit: cover;">
-                <img class="img-placeholder" src="images/hlv-online-classic/Trivela.png" alt="HLV Classic Image 6" style="object-fit: cover;">
+              <div
+                class="img-row-6"
+                style="
+                  display: grid;
+                  grid-template-columns: repeat(6, 1fr);
+                  gap: var(--space-md);
+                "
+              >
+                <img
+                  class="img-placeholder"
+                  src="images/hlv-online-classic/Logo.png"
+                  alt="HLV Classic Image 1"
+                  style="object-fit: cover"
+                />
+                <img
+                  class="img-placeholder"
+                  src="images/hlv-online-classic/Bayern_Munnich_Ribery_Robben.png"
+                  alt="HLV Classic Image 2"
+                  style="object-fit: cover"
+                />
+                <img
+                  class="img-placeholder"
+                  src="images/hlv-online-classic/Paul Scholes.png"
+                  alt="HLV Classic Image 3"
+                  style="object-fit: cover"
+                />
+                <img
+                  class="img-placeholder"
+                  src="images/hlv-online-classic/lo ge.png"
+                  alt="HLV Classic Image 4"
+                  style="object-fit: cover"
+                />
+                <img
+                  class="img-placeholder"
+                  src="images/hlv-online-classic/Pirlo.png"
+                  alt="HLV Classic Image 5"
+                  style="object-fit: cover"
+                />
+                <img
+                  class="img-placeholder"
+                  src="images/hlv-online-classic/Trivela.png"
+                  alt="HLV Classic Image 6"
+                  style="object-fit: cover"
+                />
               </div>
             </div>
           </div>
 
           <!-- Card 3: HLV Onlive -->
-          <div class="showcase-card">
+          <div class="showcase-card" id="prj-hlv-onlive">
             <div class="showcase-header">
               <span class="showcase-year">2024</span>
               <div class="showcase-title-row">
@@ -1054,16 +1579,36 @@
             <div class="showcase-image-grid-large">
               <p class="text-sm fw-bold mb-sm">Images</p>
               <div class="img-row-4">
-                <img class="img-placeholder" src="logos/zen-tactics/3.jpg" alt="HLV Onlive Image 1" style="object-fit: cover;">
-                <img class="img-placeholder" src="images/hlv-onlive/13.jpg" alt="HLV Onlive Image 2" style="object-fit: cover;">
-                <img class="img-placeholder" src="images/hlv-onlive/epl 3.png" alt="HLV Onlive Image 3" style="object-fit: cover;">
-                <img class="img-placeholder" src="images/hlv-onlive/2.png" alt="HLV Onlive Image 4" style="object-fit: cover;">
+                <img
+                  class="img-placeholder"
+                  src="logos/zen-tactics/3.jpg"
+                  alt="HLV Onlive Image 1"
+                  style="object-fit: cover"
+                />
+                <img
+                  class="img-placeholder"
+                  src="images/hlv-onlive/13.jpg"
+                  alt="HLV Onlive Image 2"
+                  style="object-fit: cover"
+                />
+                <img
+                  class="img-placeholder"
+                  src="images/hlv-onlive/epl 3.png"
+                  alt="HLV Onlive Image 3"
+                  style="object-fit: cover"
+                />
+                <img
+                  class="img-placeholder"
+                  src="images/hlv-onlive/2.png"
+                  alt="HLV Onlive Image 4"
+                  style="object-fit: cover"
+                />
               </div>
             </div>
           </div>
 
           <!-- Card 4: Cup Hoc Xem Bong -->
-          <div class="showcase-card">
+          <div class="showcase-card" id="prj-cup-hoc">
             <div class="showcase-header">
               <span class="showcase-year">2025</span>
               <div class="showcase-title-row">
@@ -1100,18 +1645,50 @@
             </div>
             <div class="showcase-image-grid-large">
               <p class="text-sm fw-bold mb-sm">Images</p>
-              <div class="img-row-5" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--space-md);">
-                <img class="img-placeholder" src="images/cup-hoc-xem-bong/Mark logo.png" alt="Cup Hoc Xem Bong Image 1" style="object-fit: cover;">
-                <img class="img-placeholder" src="images/cup-hoc-xem-bong/Bản sao của Arsenal_va_Bayern_nhu_nay_thi_sao_Chelsea_an_uoc_ay.png" alt="Cup Hoc Xem Bong Image 2" style="object-fit: cover;">
-                <img class="img-placeholder" src="images/cup-hoc-xem-bong/6a.png" alt="Cup Hoc Xem Bong Image 3" style="object-fit: cover;">
-                <img class="img-placeholder" src="images/cup-hoc-xem-bong/4a.png" alt="Cup Hoc Xem Bong Image 4" style="object-fit: cover;">
-                <img class="img-placeholder" src="images/cup-hoc-xem-bong/2a (1).png" alt="Cup Hoc Xem Bong Image 5" style="object-fit: cover;">
+              <div
+                class="img-row-5"
+                style="
+                  display: grid;
+                  grid-template-columns: repeat(5, 1fr);
+                  gap: var(--space-md);
+                "
+              >
+                <img
+                  class="img-placeholder"
+                  src="images/cup-hoc-xem-bong/Mark logo.png"
+                  alt="Cup Hoc Xem Bong Image 1"
+                  style="object-fit: cover"
+                />
+                <img
+                  class="img-placeholder"
+                  src="images/cup-hoc-xem-bong/Bản sao của Arsenal_va_Bayern_nhu_nay_thi_sao_Chelsea_an_uoc_ay.png"
+                  alt="Cup Hoc Xem Bong Image 2"
+                  style="object-fit: cover"
+                />
+                <img
+                  class="img-placeholder"
+                  src="images/cup-hoc-xem-bong/6a.png"
+                  alt="Cup Hoc Xem Bong Image 3"
+                  style="object-fit: cover"
+                />
+                <img
+                  class="img-placeholder"
+                  src="images/cup-hoc-xem-bong/4a.png"
+                  alt="Cup Hoc Xem Bong Image 4"
+                  style="object-fit: cover"
+                />
+                <img
+                  class="img-placeholder"
+                  src="images/cup-hoc-xem-bong/2a (1).png"
+                  alt="Cup Hoc Xem Bong Image 5"
+                  style="object-fit: cover"
+                />
               </div>
             </div>
           </div>
 
           <!-- Card 5: Qua Bong Cuoi, Nem Ngon... -->
-          <div class="showcase-card">
+          <div class="showcase-card" id="prj-qua-bong">
             <div class="showcase-header">
               <span class="showcase-year">2025</span>
               <div class="showcase-title-row">
@@ -1159,7 +1736,7 @@
           </div>
 
           <!-- Card 6: The Watcher -->
-          <div class="showcase-card">
+          <div class="showcase-card" id="prj-the-watcher">
             <div class="showcase-header">
               <span class="showcase-year">2025</span>
               <div class="showcase-title-row">
@@ -1242,5 +1819,6 @@
         </div>
       </div>
     </section>
+    <script src="js/main.js"></script>
   </body>
 </html>

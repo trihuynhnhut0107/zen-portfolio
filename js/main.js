@@ -62,7 +62,7 @@ function initHeroParallax() {
 }
 
 function initSideNavigation() {
-    const sections = document.querySelectorAll('section[id], .service-card[id], .showcase-card[id]');
+    const sections = document.querySelectorAll('section[id], .showcase-card[id]');
     const sideNavItems = document.querySelectorAll('.side-nav-item');
     const sideNav = document.querySelector('.side-nav');
     

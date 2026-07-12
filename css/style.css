@@ -384,6 +384,42 @@
   align-items: flex-start;
   margin-bottom: var(--space-lg);
   position: relative;
+  border-radius: 12px;
+  padding: 1rem;
+  margin: -1rem -1rem calc(var(--space-lg) - 1rem) -1rem;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.timeline-row.clickable {
+  cursor: pointer;
+}
+
+.timeline-row.clickable:hover {
+  background-color: rgba(255, 255, 255, 0.03);
+  transform: scale(1.02);
+}
+
+.timeline-row .touch-indicator {
+  display: none;
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .timeline-row.clickable .touch-indicator {
+    display: flex;
+    position: absolute;
+    right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--clr-primary);
+    font-size: 1.2rem;
+    animation: touch-pulse 1.5s infinite ease-in-out;
+  }
+}
+
+@keyframes touch-pulse {
+  0% { opacity: 0.4; transform: translateY(-50%) translateX(0); }
+  50% { opacity: 1; transform: translateY(-50%) translateX(5px); }
+  100% { opacity: 0.4; transform: translateY(-50%) translateX(0); }
 }
 
 .timeline-content {
@@ -422,6 +458,35 @@
   background-color: var(--clr-primary);
   border-radius: 50%;
   box-shadow: 0 0 10px rgba(37, 59, 255, 0.5);
+}
+
+/* Responsive Mobile Timeline */
+@media (max-width: 768px) {
+  .timeline-container::before {
+    left: 20px !important;
+  }
+  .timeline-row {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 50px !important;
+  }
+  .timeline-center {
+    left: 20px !important;
+    top: 1rem !important;
+    transform: translateX(-50%) !important;
+  }
+  .timeline-content {
+    width: 100% !important;
+  }
+  .timeline-content.left {
+    text-align: left !important;
+    margin-bottom: 0.5rem;
+  }
+  .timeline-content.right {
+    text-align: left !important;
+  }
 }
 
 .era-marker {
@@ -550,7 +615,10 @@
   border: 1px solid var(--clr-card-border);
   border-radius: var(--border-radius);
   padding: var(--space-lg);
+  overflow: hidden; /* Guarantee images never overlap borders */
+  max-width: 100%;
 }
+
 
 .showcase-header {
   margin-bottom: var(--space-md);
@@ -671,14 +739,6 @@
   .stat-dash-line {
     display: none;
   }
-  .hlv-tl-row {
-    flex-direction: column;
-    gap: var(--space-lg);
-  }
-  .hlv-tl-row.bottom-row {
-    padding-left: 0 !important;
-  }
-}
 
 /* Section 6 & 7 Additional Styles */
 .mt-sm { margin-top: 0.5rem; }
@@ -1090,4 +1150,312 @@
 .side-nav.on-primary-bg .side-nav-item.active .side-nav-dot {
   background-color: #FFFFFF;
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+/* --- Added Comprehensive Responsive Design --- */
+@media (max-width: 1024px) {
+  /* Scale down 3 and 4 column grids to 2 columns on tablet */
+  .zen-tactics-grid, 
+  .overview-content,
+  .about-content,
+  .toc-projects-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  
+  /* Hide side nav on tablet as well to prevent overlapping */
+  .side-nav {
+    display: none !important;
+  }
+
+  /* Tablet Card Paddings */
+  .toc-card,
+  .showcase-card {
+    padding: 2.5rem;
+  }
+  .service-card {
+    padding: 2.5rem 1.5rem;
+  }
+  .project-showcase-cards {
+    gap: 3rem;
+  }
+
+  /* Shrinking Horizontal Sub-Timeline (Tablet & Mobile) */
+  .project-sub-timeline {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the entire timeline block */
+  }
+  .sub-tl-track {
+    /* Ensure track stays horizontal but spans full width */
+    width: 100%;
+    left: 0;
+    right: 0;
+  }
+  .sub-tl-item {
+    justify-content: center;
+    margin: 0 auto 1.5rem auto;
+  }
+  .sub-tl-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem; /* Shrink gap significantly to fit mobile */
+    width: 100%;
+    justify-items: center;
+  }
+  .sub-tl-col {
+    padding-left: 0.5rem; /* Reduce padding to save space */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .sub-tl-col h5 {
+    font-size: 0.85rem; /* Scale down typography */
+    text-align: center;
+  }
+  .sub-tl-col .text-sm {
+    font-size: 0.7rem;
+    text-align: center;
+  }
+  .sub-tl-stats {
+    flex-wrap: wrap; /* Allow badges to wrap if completely out of space */
+    justify-content: center;
+  }
+  .sub-tl-stats .badge {
+    padding: 0.15rem 0.35rem;
+    font-size: 0.65rem;
+  }
+
+  /* Image Carousel on Tablet & Mobile */
+  .showcase-images,
+  [class^="img-row-"] {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory;
+    gap: 1rem !important; 
+    padding-bottom: 1rem; 
+    -webkit-overflow-scrolling: touch; 
+    scrollbar-width: none; 
+    height: auto !important;
+    align-items: center;
+  }
+  
+  .showcase-images::-webkit-scrollbar,
+  [class^="img-row-"]::-webkit-scrollbar {
+    display: none; 
+  }
+
+  /* Force Width to Fit Slider Component */
+  .showcase-images > *,
+  [class^="img-row-"] > * {
+    width: 100% !important; 
+    flex: 0 0 100% !important; 
+    height: auto !important; 
+    aspect-ratio: auto !important; 
+    scroll-snap-align: center;
+    object-fit: contain !important;
+    max-width: 100%; 
+    border-radius: 8px;
+    background-color: var(--clr-bg);
+  }
+
+  /* Minimal Slider Indicators */
+  .carousel-indicators {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    margin-top: 1rem;
+    padding-bottom: 0.5rem;
+  }
+  .carousel-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+  }
+  .carousel-dot.active {
+    width: 16px;
+    border-radius: 4px;
+    background-color: var(--clr-primary);
+    box-shadow: 0 0 8px rgba(37, 59, 255, 0.6);
+  }
+}
+
+@media (max-width: 768px) {
+  /* Scale all grids to 1 column on mobile */
+  .zen-tactics-grid, 
+  .overview-content,
+  .about-content,
+  .toc-projects-grid,
+  .hero-content,
+  .about-top,
+  .toc-sublist-wrapper,
+  .services-grid,
+  .project-intro-grid,
+  .showcase-title-row,
+  .ty-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important; /* Unified smaller gap for mobile grids */
+  }
+
+  
+  /* Layout Spacing Adjustments */
+  .project-showcase-cards,
+  .about-top {
+    gap: 2rem;
+  }
+  
+  section {
+    padding: 4rem 0; /* Override generic section padding on mobile */
+  }
+
+  /* Specific Card Paddings & Margins */
+  .toc-card {
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .service-card {
+    padding: 2rem 1.25rem;
+    margin-bottom: 1rem;
+    align-items: flex-start; /* Better alignment on mobile */
+    text-align: left;
+  }
+  
+  .showcase-card {
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .showcase-title {
+    font-size: 1.5rem;
+  }
+  
+  .toc-number {
+    font-size: 1.25rem;
+    width: 2.5rem;
+  }
+  
+  .toc-title {
+    font-size: 1.25rem;
+  }
+
+  .service-icon {
+    margin-bottom: 1rem;
+  }
+
+  /* Adjust image heights for single column */
+  .showcase-images {
+    height: auto !important;
+  }
+  
+  /* Hero adjustments for single column */
+  .hero-content {
+    text-align: center;
+    gap: 1.5rem;
+  }
+  .hero-logo-large {
+    order: -1;
+    transform: scale(0.7);
+  }
+  .hero-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero-subtext {
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 1.25rem;
+  }
+  /* HLV Timeline: Vertical layout with correct time mapping */
+  .hlv-timeline-section {
+    display: flex !important;
+    flex-direction: column !important;
+    position: relative;
+    padding-left: 20px;
+  }
+  .hlv-timeline-section::before {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: var(--clr-primary);
+  }
+  
+  /* Flatten the structure to reorder items chronologically */
+  .hlv-tl-row, .hlv-tl-line-wrapper, .hlv-tl-line {
+    display: contents !important;
+  }
+  
+  .hlv-tl-item {
+    text-align: left !important;
+    padding-left: 15px !important;
+    margin-bottom: 2rem !important;
+    width: 100% !important;
+  }
+  .hlv-tl-item h5 {
+    font-size: 1rem !important;
+    margin-bottom: 0.25rem !important;
+  }
+  .hlv-tl-item p {
+    font-size: 0.8rem !important;
+  }
+  .hlv-tl-item .sub-tl-stats {
+    flex-wrap: wrap !important;
+    justify-content: flex-start !important;
+    gap: 0.5rem !important;
+  }
+  .hlv-tl-item .badge {
+    font-size: 0.7rem !important;
+    padding: 0.25rem 0.5rem !important;
+  }
+
+  /* Reorder using Flex Order */
+  .hlv-tl-line-wrapper > .hlv-tl-era { order: 1; margin-bottom: 1.5rem !important; padding-left: 15px !important; }
+  
+  /* 2023 */
+  .hlv-tl-line > .hlv-tl-marker:nth-child(1) { order: 2; }
+  .top-row > .hlv-tl-item:nth-child(1) { order: 3; }
+  .bottom-row > .hlv-tl-item:nth-child(1) { order: 4; margin-bottom: 1rem !important; }
+  
+  /* 2024 */
+  .hlv-tl-line > .hlv-tl-marker:nth-child(2) { order: 5; }
+  .top-row > .hlv-tl-item:nth-child(2) { order: 6; margin-bottom: 1rem !important; }
+  .bottom-row > .hlv-tl-item:nth-child(2) { order: 7; margin-bottom: 1rem !important; }
+  
+  /* 2025 */
+  .hlv-tl-line > .hlv-tl-marker:nth-child(3) { order: 8; }
+  .top-row > .hlv-tl-item:nth-child(3) { order: 9; margin-bottom: 1rem !important; }
+  .bottom-row > .hlv-tl-item:nth-child(3) { order: 10; margin-bottom: 1rem !important; }
+  
+  .hlv-tl-line-wrapper > .hlv-tl-end { order: 11; margin-top: 1rem !important; padding-left: 15px !important; }
+
+  /* Style the markers on the vertical line */
+  .hlv-tl-marker {
+    position: relative !important;
+    width: 10px !important;
+    height: 10px !important;
+    left: -20px !important;
+    margin-bottom: 1rem !important;
+    background-color: var(--clr-primary) !important;
+    border-radius: 50% !important;
+  }
+  .hlv-tl-marker .year {
+    position: absolute !important;
+    top: -4px !important;
+    left: 20px !important;
+    transform: none !important;
+    font-size: 1rem !important;
+    font-weight: bold !important;
+    color: var(--clr-primary) !important;
+  }
+
 }
